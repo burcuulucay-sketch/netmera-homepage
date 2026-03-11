@@ -1,0 +1,226 @@
+import React, { useState } from 'react';
+import { 
+  BarChart3, 
+  Cpu, 
+  Layers, 
+  Map, 
+  MessageSquare, 
+  MousePointer2, 
+  Search, 
+  Smartphone, 
+  Zap,
+  ChevronRight,
+  ShieldCheck,
+  Users,
+  CheckCircle2,
+  Globe,
+  Mail,
+  Infinity,
+  Filter
+} from 'lucide-react';
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <div className="min-h-screen bg-slate-50 p-8 font-sans">
+      {/* Simulation of a Nav Bar */}
+      <nav className="max-w-7xl mx-auto bg-white shadow-sm rounded-xl px-6 py-4 flex items-center justify-between border border-slate-200">
+        <div className="flex items-center gap-8">
+          <div className="text-2xl font-black text-blue-600 tracking-tighter italic">NETMERA</div>
+          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+            <button 
+              className={`pb-1 border-b-2 transition-colors ${isOpen ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600'}`}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Platform
+            </button>
+            <button className="hover:text-blue-600">Solutions</button>
+            <button className="hover:text-blue-600">Resources</button>
+            <button className="hover:text-blue-600">Pricing</button>
+          </div>
+        </div>
+        <div className="flex gap-4">
+          <button className="text-sm font-semibold px-4 py-2 text-slate-700 hover:bg-slate-50 rounded-lg">Log in</button>
+          <button className="text-sm font-semibold px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-md transition-all">Book a Demo</button>
+        </div>
+      </nav>
+
+      {/* The Mega Menu Artifact */}
+      {isOpen && (
+        <div className="max-w-6xl mx-auto mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="grid grid-cols-12">
+            
+            {/* LEFT COLUMN: Overview & AI */}
+            <div className="col-span-12 lg:col-span-4 p-8 bg-slate-50/50 border-r border-slate-100">
+              <div className="mb-8">
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">The Platform</h3>
+                <div className="group cursor-pointer p-4 -ml-4 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-100">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                      <Layers size={20} />
+                    </div>
+                    <span className="font-bold text-slate-900">Platform Overview</span>
+                  </div>
+                  <p className="text-sm text-slate-500 ml-11">Unify data, run analysis, and perfect every conversation in one place.</p>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Netmera AI</h3>
+                <div className="space-y-4">
+                  <AIItem 
+                    icon={<Zap size={18} />} 
+                    title="Predictive AI" 
+                    desc="Churn risk & purchase intent" 
+                    tag="PREDICT"
+                  />
+                  <AIItem 
+                    icon={<Cpu size={18} />} 
+                    title="Generative AI" 
+                    desc="AI-assisted campaign creation" 
+                    tag="NEW"
+                  />
+                  <AIItem 
+                    icon={<Users size={18} />} 
+                    title="Agentic AI" 
+                    desc="Automated decision-making" 
+                    tag="BETA"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* MIDDLE COLUMN: Capabilities */}
+            <div className="col-span-12 lg:col-span-4 p-8">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Featured Capabilities</h3>
+              <div className="grid grid-cols-1 gap-1">
+                <FeatureItem icon={<Globe />} title="CDP" desc="360° Unified Customer Profiles" />
+                <FeatureItem icon={<Map />} title="Journey Orchestration" desc="Multi-step behavior-based flows" />
+                <FeatureItem icon={<MousePointer2 />} title="Web Personalization" desc="On-page elements without code" />
+                <FeatureItem icon={<Filter />} title="Funnels" desc="Analyze conversion and drop-off points" />
+                <FeatureItem icon={<BarChart3 />} title="Analytics" desc="Real-time performance tracking" />
+                <FeatureItem icon={<Layers />} title="Segmentation & Targeting" desc="Dynamic real-time audiences" />
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: Search & Channels */}
+            <div className="col-span-12 lg:col-span-4 p-8 bg-slate-50/30">
+              <div className="mb-8">
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Discovery</h3>
+                <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-blue-300 transition-all">
+                  <div className="p-2 bg-purple-100 text-purple-600 rounded-lg">
+                    <Search size={20} />
+                  </div>
+                  <div>
+                    <span className="font-bold text-slate-900 block">AI Search & Discovery</span>
+                    <span className="text-xs text-slate-500 italic">Advanced intent-based search</span>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Channels</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <ChannelItem icon={<Smartphone size={16} />} label="Mobile Push" />
+                <ChannelItem icon={<MessageSquare size={16} />} label="In-App" />
+                <ChannelItem icon={<Mail size={16} />} label="Email" />
+                <ChannelItem icon={<Globe size={16} />} label="WhatsApp" />
+              </div>
+              <button className="mt-6 text-sm font-bold text-blue-600 flex items-center gap-1 hover:translate-x-1 transition-transform">
+                View all channels <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+
+          {/* BOTTOM SECTION: WHY NETMERA */}
+          <div className="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-white">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl mx-auto">
+              <div className="flex flex-col">
+                <span className="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-1">Trusted Platform</span>
+                <h4 className="text-lg font-bold">Why Netmera?</h4>
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-8">
+                <TrustFactor 
+                  icon={<Zap className="text-yellow-400" size={18} />} 
+                  title="100% Delivery" 
+                  desc="Reliable messaging at scale" 
+                />
+                <TrustFactor 
+                  icon={<ShieldCheck className="text-green-400" size={18} />} 
+                  title="Secure & Reliable" 
+                  desc="Ideal for Finance & Banking" 
+                />
+                <TrustFactor 
+                  icon={<Infinity className="text-blue-400" size={18} />} 
+                  title="No-Code Setup" 
+                  desc="Implementation in weeks, not months" 
+                />
+              </div>
+
+              <button className="bg-white text-blue-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-50 transition-colors shadow-lg">
+                Explore Success Stories
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Help text for colleagues */}
+      <div className="max-w-2xl mx-auto mt-12 text-center text-slate-400 text-sm">
+        <p>This is a visualization of the <strong>Platform</strong> dropdown menu.</p>
+        <p className="mt-2">It organizes Netmera's core features, AI capabilities, and channels into a high-conversion layout similar to top-tier enterprise platforms.</p>
+      </div>
+    </div>
+  );
+};
+
+const AIItem = ({ icon, title, desc, tag }) => (
+  <div className="flex gap-3 group cursor-pointer">
+    <div className="mt-1 text-blue-600 group-hover:scale-110 transition-transform">
+      {icon}
+    </div>
+    <div className="flex-1">
+      <div className="flex items-center gap-2">
+        <span className="font-bold text-slate-800 text-sm">{title}</span>
+        <span className="bg-blue-100 text-blue-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">
+          {tag}
+        </span>
+      </div>
+      <p className="text-xs text-slate-500">{desc}</p>
+    </div>
+  </div>
+);
+
+const FeatureItem = ({ icon, title, desc }) => (
+  <div className="flex gap-4 p-2 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+    <div className="text-blue-500 mt-1">
+      {React.cloneElement(icon, { size: 18 })}
+    </div>
+    <div>
+      <span className="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">{title}</span>
+      <p className="text-xs text-slate-500 leading-tight mt-0.5">{desc}</p>
+    </div>
+  </div>
+);
+
+const ChannelItem = ({ icon, label }) => (
+  <div className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-100 hover:border-blue-200 hover:shadow-sm cursor-pointer transition-all group">
+    <div className="text-slate-400 group-hover:text-blue-500 transition-colors">
+      {icon}
+    </div>
+    <span className="text-xs font-semibold text-slate-600 group-hover:text-slate-900">{label}</span>
+  </div>
+);
+
+const TrustFactor = ({ icon, title, desc }) => (
+  <div className="flex items-start gap-3">
+    <div className="mt-1">{icon}</div>
+    <div>
+      <div className="text-xs font-bold text-white">{title}</div>
+      <div className="text-[10px] text-blue-200 max-w-[120px]">{desc}</div>
+    </div>
+  </div>
+);
+
+export default App;
