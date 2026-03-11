@@ -1,226 +1,299 @@
-import React, { useState } from 'react';
-import { 
-  BarChart3, 
-  Cpu, 
-  Layers, 
-  Map, 
-  MessageSquare, 
-  MousePointer2, 
-  Search, 
-  Smartphone, 
-  Zap,
-  ChevronRight,
-  ShieldCheck,
-  Users,
-  CheckCircle2,
-  Globe,
-  Mail,
-  Infinity,
-  Filter
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netmera Platform Navigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mega-menu {
+            display: none;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        .mega-menu.active {
+            display: block;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-4 md:p-8">
 
-const App = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  return (
-    <div className="min-h-screen bg-slate-50 p-8 font-sans">
-      {/* Simulation of a Nav Bar */}
-      <nav className="max-w-7xl mx-auto bg-white shadow-sm rounded-xl px-6 py-4 flex items-center justify-between border border-slate-200">
-        <div className="flex items-center gap-8">
-          <div className="text-2xl font-black text-blue-600 tracking-tighter italic">NETMERA</div>
-          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <button 
-              className={`pb-1 border-b-2 transition-colors ${isOpen ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600'}`}
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              Platform
-            </button>
-            <button className="hover:text-blue-600">Solutions</button>
-            <button className="hover:text-blue-600">Resources</button>
-            <button className="hover:text-blue-600">Pricing</button>
-          </div>
+    <!-- Navigation Bar -->
+    <nav class="max-w-7xl mx-auto bg-white shadow-sm rounded-xl px-6 py-4 flex items-center justify-between border border-slate-200 relative z-50">
+        <div class="flex items-center gap-8">
+            <div class="text-2xl font-black text-blue-600 tracking-tighter italic select-none">NETMERA</div>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+                <button id="platform-btn" class="pb-1 border-b-2 border-blue-600 text-blue-600 transition-colors">
+                    Platform
+                </button>
+                <button class="hover:text-blue-600 transition-colors">Solutions</button>
+                <button class="hover:text-blue-600 transition-colors">Resources</button>
+                <button class="hover:text-blue-600 transition-colors">Pricing</button>
+            </div>
         </div>
-        <div className="flex gap-4">
-          <button className="text-sm font-semibold px-4 py-2 text-slate-700 hover:bg-slate-50 rounded-lg">Log in</button>
-          <button className="text-sm font-semibold px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-md transition-all">Book a Demo</button>
+        <div class="flex gap-4">
+            <button class="text-sm font-semibold px-4 py-2 text-slate-700 hover:bg-slate-50 rounded-lg">Log in</button>
+            <button class="text-sm font-semibold px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-md transition-all">Book a Demo</button>
         </div>
-      </nav>
+    </nav>
 
-      {/* The Mega Menu Artifact */}
-      {isOpen && (
-        <div className="max-w-6xl mx-auto mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="grid grid-cols-12">
+    <!-- Mega Menu -->
+    <div id="mega-menu" class="mega-menu active max-w-6xl mx-auto mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative z-40">
+        <div class="grid grid-cols-1 md:grid-cols-12">
             
-            {/* LEFT COLUMN: Overview & AI */}
-            <div className="col-span-12 lg:col-span-4 p-8 bg-slate-50/50 border-r border-slate-100">
-              <div className="mb-8">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">The Platform</h3>
-                <div className="group cursor-pointer p-4 -ml-4 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-100">
-                  <div className="flex items-center gap-3 mb-1">
-                    <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
-                      <Layers size={20} />
+            <!-- LEFT COLUMN: Overview & AI -->
+            <div class="col-span-12 md:col-span-4 p-8 bg-slate-50/50 border-r border-slate-100">
+                <div class="mb-8">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">The Platform</h3>
+                    <div class="group cursor-pointer p-4 -ml-4 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-100">
+                        <div class="flex items-center gap-3 mb-1">
+                            <div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/></svg>
+                            </div>
+                            <span class="font-bold text-slate-900">Platform Overview</span>
+                        </div>
+                        <p class="text-sm text-slate-500 ml-11">Unify data, run analysis, and perfect every conversation in one place.</p>
                     </div>
-                    <span className="font-bold text-slate-900">Platform Overview</span>
-                  </div>
-                  <p className="text-sm text-slate-500 ml-11">Unify data, run analysis, and perfect every conversation in one place.</p>
                 </div>
-              </div>
 
-              <div>
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Netmera AI</h3>
-                <div className="space-y-4">
-                  <AIItem 
-                    icon={<Zap size={18} />} 
-                    title="Predictive AI" 
-                    desc="Churn risk & purchase intent" 
-                    tag="PREDICT"
-                  />
-                  <AIItem 
-                    icon={<Cpu size={18} />} 
-                    title="Generative AI" 
-                    desc="AI-assisted campaign creation" 
-                    tag="NEW"
-                  />
-                  <AIItem 
-                    icon={<Users size={18} />} 
-                    title="Agentic AI" 
-                    desc="Automated decision-making" 
-                    tag="BETA"
-                  />
+                <div>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Netmera AI</h3>
+                    <div class="space-y-6">
+                        <!-- AI Item 1 -->
+                        <div class="flex gap-3 group cursor-pointer">
+                            <div class="mt-1 text-blue-600 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-slate-800 text-sm">Predictive AI</span>
+                                    <span class="bg-blue-100 text-blue-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">PREDICT</span>
+                                </div>
+                                <p class="text-xs text-slate-500">Churn risk & purchase intent</p>
+                            </div>
+                        </div>
+                        <!-- AI Item 2 -->
+                        <div class="flex gap-3 group cursor-pointer">
+                            <div class="mt-1 text-blue-600 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-slate-800 text-sm">Generative AI</span>
+                                    <span class="bg-blue-100 text-blue-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">NEW</span>
+                                </div>
+                                <p class="text-xs text-slate-500">AI-assisted campaign creation</p>
+                            </div>
+                        </div>
+                        <!-- AI Item 3 -->
+                        <div class="flex gap-3 group cursor-pointer">
+                            <div class="mt-1 text-blue-600 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-slate-800 text-sm">Agentic AI</span>
+                                    <span class="bg-blue-100 text-blue-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">BETA</span>
+                                </div>
+                                <p class="text-xs text-slate-500">Automated decision-making</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
 
-            {/* MIDDLE COLUMN: Capabilities */}
-            <div className="col-span-12 lg:col-span-4 p-8">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Featured Capabilities</h3>
-              <div className="grid grid-cols-1 gap-1">
-                <FeatureItem icon={<Globe />} title="CDP" desc="360° Unified Customer Profiles" />
-                <FeatureItem icon={<Map />} title="Journey Orchestration" desc="Multi-step behavior-based flows" />
-                <FeatureItem icon={<MousePointer2 />} title="Web Personalization" desc="On-page elements without code" />
-                <FeatureItem icon={<Filter />} title="Funnels" desc="Analyze conversion and drop-off points" />
-                <FeatureItem icon={<BarChart3 />} title="Analytics" desc="Real-time performance tracking" />
-                <FeatureItem icon={<Layers />} title="Segmentation & Targeting" desc="Dynamic real-time audiences" />
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Search & Channels */}
-            <div className="col-span-12 lg:col-span-4 p-8 bg-slate-50/30">
-              <div className="mb-8">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Discovery</h3>
-                <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-blue-300 transition-all">
-                  <div className="p-2 bg-purple-100 text-purple-600 rounded-lg">
-                    <Search size={20} />
-                  </div>
-                  <div>
-                    <span className="font-bold text-slate-900 block">AI Search & Discovery</span>
-                    <span className="text-xs text-slate-500 italic">Advanced intent-based search</span>
-                  </div>
+            <!-- MIDDLE COLUMN: Capabilities -->
+            <div class="col-span-12 md:col-span-4 p-8">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Featured Capabilities</h3>
+                <div class="grid grid-cols-1 gap-2">
+                    <!-- Feature Item 1 -->
+                    <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+                        <div class="text-blue-500 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">CDP</span>
+                            <p class="text-xs text-slate-500 leading-tight mt-0.5">360° Unified Customer Profiles</p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 2 -->
+                    <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+                        <div class="text-blue-500 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Journey Orchestration</span>
+                            <p class="text-xs text-slate-500 leading-tight mt-0.5">Multi-step behavior-based flows</p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 3 -->
+                    <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+                        <div class="text-blue-500 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h5"/><path d="M15 12v5"/><path d="m15 12 4.7 4.7"/><path d="M12 4.2C10.2 3.7 8.1 3.9 6.2 4.7 2.4 6.2 1.5 10.4 4.2 14.1l1.5 2.1c.3.5.3 1.1.2 1.6l-.3 1.2a1 1 0 0 0 1.2 1.2l1.2-.3c.5-.1 1.1-.1 1.6.2l2.1 1.5c3.7 2.7 7.9 1.8 9.4-2 1.3-3.4.6-7.2-1.7-9.5"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Web Personalization</span>
+                            <p class="text-xs text-slate-500 leading-tight mt-0.5">On-page elements without code</p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 4 -->
+                    <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+                        <div class="text-blue-500 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16V8"/><path d="M11 16V12"/><path d="M15 16V5"/><path d="M19 16V10"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Funnels</span>
+                            <p class="text-xs text-slate-500 leading-tight mt-0.5">Analyze conversion and drop-off points</p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 5 -->
+                    <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+                        <div class="text-blue-500 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6h4v6h5v-8l-9-7-9 7v8h5z"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Analytics</span>
+                            <p class="text-xs text-slate-500 leading-tight mt-0.5">Real-time performance tracking</p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 6 -->
+                    <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
+                        <div class="text-blue-500 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14h20"/><path d="M2 10h20"/><path d="M2 18h20"/><path d="M2 6h20"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Segmentation & Targeting</span>
+                            <p class="text-xs text-slate-500 leading-tight mt-0.5">Dynamic real-time audiences</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Channels</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <ChannelItem icon={<Smartphone size={16} />} label="Mobile Push" />
-                <ChannelItem icon={<MessageSquare size={16} />} label="In-App" />
-                <ChannelItem icon={<Mail size={16} />} label="Email" />
-                <ChannelItem icon={<Globe size={16} />} label="WhatsApp" />
-              </div>
-              <button className="mt-6 text-sm font-bold text-blue-600 flex items-center gap-1 hover:translate-x-1 transition-transform">
-                View all channels <ChevronRight size={16} />
-              </button>
             </div>
-          </div>
 
-          {/* BOTTOM SECTION: WHY NETMERA */}
-          <div className="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-white">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl mx-auto">
-              <div className="flex flex-col">
-                <span className="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-1">Trusted Platform</span>
-                <h4 className="text-lg font-bold">Why Netmera?</h4>
-              </div>
-              
-              <div className="flex flex-wrap justify-center gap-8">
-                <TrustFactor 
-                  icon={<Zap className="text-yellow-400" size={18} />} 
-                  title="100% Delivery" 
-                  desc="Reliable messaging at scale" 
-                />
-                <TrustFactor 
-                  icon={<ShieldCheck className="text-green-400" size={18} />} 
-                  title="Secure & Reliable" 
-                  desc="Ideal for Finance & Banking" 
-                />
-                <TrustFactor 
-                  icon={<Infinity className="text-blue-400" size={18} />} 
-                  title="No-Code Setup" 
-                  desc="Implementation in weeks, not months" 
-                />
-              </div>
+            <!-- RIGHT COLUMN: Search & Channels -->
+            <div class="col-span-12 md:col-span-4 p-8 bg-slate-50/30">
+                <div class="mb-8">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Discovery</h3>
+                    <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-blue-300 transition-all">
+                        <div class="p-2 bg-purple-100 text-purple-600 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-900 block">AI Search & Discovery</span>
+                            <span class="text-xs text-slate-500 italic">Advanced intent-based search</span>
+                        </div>
+                    </div>
+                </div>
 
-              <button className="bg-white text-blue-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-50 transition-colors shadow-lg">
-                Explore Success Stories
-              </button>
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Channels</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Channel 1 -->
+                    <div class="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-100 hover:border-blue-200 hover:shadow-sm cursor-pointer transition-all group">
+                        <div class="text-slate-400 group-hover:text-blue-500 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-600 group-hover:text-slate-900">Mobile Push</span>
+                    </div>
+                    <!-- Channel 2 -->
+                    <div class="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-100 hover:border-blue-200 hover:shadow-sm cursor-pointer transition-all group">
+                        <div class="text-slate-400 group-hover:text-blue-500 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-600 group-hover:text-slate-900">In-App</span>
+                    </div>
+                    <!-- Channel 3 -->
+                    <div class="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-100 hover:border-blue-200 hover:shadow-sm cursor-pointer transition-all group">
+                        <div class="text-slate-400 group-hover:text-blue-500 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-600 group-hover:text-slate-900">Email</span>
+                    </div>
+                    <!-- Channel 4 -->
+                    <div class="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-100 hover:border-blue-200 hover:shadow-sm cursor-pointer transition-all group">
+                        <div class="text-slate-400 group-hover:text-blue-500 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-600 group-hover:text-slate-900">WhatsApp</span>
+                    </div>
+                </div>
+                <button class="mt-6 text-sm font-bold text-blue-600 flex items-center gap-1 hover:translate-x-1 transition-transform">
+                    View all channels 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
             </div>
-          </div>
         </div>
-      )}
 
-      {/* Help text for colleagues */}
-      <div className="max-w-2xl mx-auto mt-12 text-center text-slate-400 text-sm">
-        <p>This is a visualization of the <strong>Platform</strong> dropdown menu.</p>
-        <p className="mt-2">It organizes Netmera's core features, AI capabilities, and channels into a high-conversion layout similar to top-tier enterprise platforms.</p>
-      </div>
-    </div>
-  );
-};
+        <!-- BOTTOM SECTION: WHY NETMERA -->
+        <div class="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-white">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl mx-auto">
+                <div class="flex flex-col">
+                    <span class="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-1">Trusted Platform</span>
+                    <h4 class="text-lg font-bold">Why Netmera?</h4>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Trust 1 -->
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 text-yellow-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">100% Delivery</div>
+                            <div class="text-[10px] text-blue-200 max-w-[120px]">Reliable messaging at scale</div>
+                        </div>
+                    </div>
+                    <!-- Trust 2 -->
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 text-green-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Secure & Reliable</div>
+                            <div class="text-[10px] text-blue-200 max-w-[120px]">Ideal for Finance & Banking</div>
+                        </div>
+                    </div>
+                    <!-- Trust 3 -->
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 text-blue-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">No-Code Setup</div>
+                            <div class="text-[10px] text-blue-200 max-w-[120px]">Implementation in weeks, not months</div>
+                        </div>
+                    </div>
+                </div>
 
-const AIItem = ({ icon, title, desc, tag }) => (
-  <div className="flex gap-3 group cursor-pointer">
-    <div className="mt-1 text-blue-600 group-hover:scale-110 transition-transform">
-      {icon}
+                <button class="bg-white text-blue-900 px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-50 transition-colors shadow-lg">
+                    Explore Success Stories
+                </button>
+            </div>
+        </div>
     </div>
-    <div className="flex-1">
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-slate-800 text-sm">{title}</span>
-        <span className="bg-blue-100 text-blue-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">
-          {tag}
-        </span>
-      </div>
-      <p className="text-xs text-slate-500">{desc}</p>
-    </div>
-  </div>
-);
 
-const FeatureItem = ({ icon, title, desc }) => (
-  <div className="flex gap-4 p-2 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer border border-transparent hover:border-slate-100">
-    <div className="text-blue-500 mt-1">
-      {React.cloneElement(icon, { size: 18 })}
+    <div class="max-w-2xl mx-auto mt-12 text-center text-slate-400 text-sm">
+        <p>This visualization shows the <strong>Platform</strong> dropdown menu in HTML/Tailwind.</p>
+        <p class="mt-2 font-medium text-slate-500">Includes Funnels and Why Netmera sections as requested.</p>
     </div>
-    <div>
-      <span className="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">{title}</span>
-      <p className="text-xs text-slate-500 leading-tight mt-0.5">{desc}</p>
-    </div>
-  </div>
-);
 
-const ChannelItem = ({ icon, label }) => (
-  <div className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-100 hover:border-blue-200 hover:shadow-sm cursor-pointer transition-all group">
-    <div className="text-slate-400 group-hover:text-blue-500 transition-colors">
-      {icon}
-    </div>
-    <span className="text-xs font-semibold text-slate-600 group-hover:text-slate-900">{label}</span>
-  </div>
-);
+    <script>
+        const btn = document.getElementById('platform-btn');
+        const menu = document.getElementById('mega-menu');
 
-const TrustFactor = ({ icon, title, desc }) => (
-  <div className="flex items-start gap-3">
-    <div className="mt-1">{icon}</div>
-    <div>
-      <div className="text-xs font-bold text-white">{title}</div>
-      <div className="text-[10px] text-blue-200 max-w-[120px]">{desc}</div>
-    </div>
-  </div>
-);
-
-export default App;
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            if (menu.classList.contains('active')) {
+                btn.classList.add('border-blue-600', 'text-blue-600');
+                btn.classList.remove('border-transparent');
+            } else {
+                btn.classList.remove('border-blue-600', 'text-blue-600');
+                btn.classList.add('border-transparent');
+            }
+        });
+    </script>
+</body>
+</html>
