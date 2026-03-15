@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netmera: Stop Losing Customers to Bad Timing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #3B3762;
+    --navy-mid:   #2E2B50;
+    --blue:       #3B3762;
+    --blue-light: #71C8F0;
+    --sky:        #EBF2FF;
+    --white:      #FFFFFF;
+    --off-white:  #F7F9FC;
+    --gray:       #64748B;
+    --gray-light: #E2E8F0;
+    --text:       #0F172A;
+    --gold:       #F59E0B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .stat-number {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(6, 24, 58, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .logo-net  { color: #71C8F0; }
+  .logo-mera { color: #A3C24B; }
+
+  .nav-cta {
+    background: #71C8F0;
+    color: var(--white);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--blue-light); }
+
+  /* ─── HERO ────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-grid {
+    display: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(113,200,240,0.14) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 780px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    border: 1px solid rgba(59,130,246,0.4);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .hero-sub {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+  }
+
+  .btn-primary {
+    background: #71C8F0;
+    color: var(--white);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 16px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .btn-ghost:hover { color: var(--white); }
+
+  .hero-clients {
+    position: relative; z-index: 2;
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-clients p {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+  }
+
+  .client-logos {
+    display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+  }
+
+  .client-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── SECTIONS ────────────────────────────────────── */
+  section { padding: 100px 48px; }
+
+  .section-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #71C8F0;
+    margin-bottom: 20px;
+  }
+
+  .section-heading {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    color: var(--navy);
+    margin-bottom: 24px;
+    max-width: 680px;
+  }
+
+  .section-body {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--gray);
+    max-width: 640px;
+    margin-bottom: 24px;
+  }
+
+  /* ─── SITUATION ───────────────────────────────────── */
+  .situation {
+    background: var(--off-white);
+    border-top: 4px solid #71C8F0;
+  }
+
+  .situation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: 56px;
+  }
+
+  .situation-card {
+    padding: 32px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-light);
+  }
+
+  .situation-card .icon {
+    width: 44px; height: 44px;
+    background: var(--sky);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .situation-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .situation-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  /* ─── PAIN ────────────────────────────────────────── */
+  .pain { background: var(--navy); }
+
+  .pain .section-label { color: var(--blue-light); }
+  .pain .section-heading { color: var(--white); }
+  .pain .section-body { color: rgba(255,255,255,0.6); }
+
+  .pull-quote {
+    margin: 48px 0;
+    padding: 32px 40px;
+    background: rgba(26,86,219,0.15);
+    border-left: 4px solid #71C8F0;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+
+  /* ─── HOW IT WORKS ────────────────────────────────── */
+  .how { background: var(--white); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+
+  .step {
+    position: relative;
+    padding: 36px 28px;
+    background: var(--off-white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-light);
+  }
+
+  .step-number {
+    font-family: 'Nunito', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--sky);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .step h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .step p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  .deployment-note {
+    margin-top: 48px;
+    padding: 28px 36px;
+    background: var(--sky);
+    border-radius: 12px;
+    display: flex; align-items: center; gap: 20px;
+  }
+
+  .deployment-note .badge {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3B3762;
+    background: rgba(113,200,240,0.25);
+    padding: 6px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .deployment-note p {
+    font-size: 15px;
+    color: var(--navy-mid);
+    line-height: 1.6;
+  }
+
+  /* ─── PROOF ───────────────────────────────────────── */
+  .proof { background: var(--off-white); }
+
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .metric-card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-light);
+    padding: 36px 28px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: #3B3762;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+
+  .stat-source {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  .case-studies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .case-card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-light);
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #71C8F0;
+  }
+
+  .case-client {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 16px;
+  }
+
+  .case-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+
+  .case-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 24px;
+  }
+
+  .case-results {
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+
+  .result-item {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+
+  .result-value {
+    font-family: 'Nunito', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+
+  .case-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #3B3762;
+    text-decoration: none;
+    border-bottom: 2px solid #71C8F0;
+    padding-bottom: 2px;
+    margin-bottom: 24px;
+    transition: color 0.2s;
+  }
+  .case-link:hover { color: #71C8F0; }
+
+  .result-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  /* ─── ELIGIBILITY ─────────────────────────────────── */
+  .eligibility { background: var(--white); }
+
+  .eligibility-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .elig-card {
+    padding: 40px;
+    border-radius: 12px;
+  }
+
+  .elig-card.no {
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+  }
+
+  .elig-card.yes {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+  }
+
+  .elig-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+  }
+
+  .elig-card.no h3 { color: #B91C1C; }
+  .elig-card.yes h3 { color: #166534; }
+
+  .elig-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .elig-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .elig-list li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    margin-top: 2px;
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .elig-card.no .elig-list li::before {
+    background-color: #FCA5A5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B91C1C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+  }
+
+  .elig-card.yes .elig-list li::before {
+    background-color: #86EFAC;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23166534' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  }
+
+  /* ─── CTA ─────────────────────────────────────────── */
+  .cta-section {
+    background: var(--navy);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section .hero-grid { opacity: 0.4; }
+  .cta-section .hero-glow {
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
+  }
+
+  .cta-section .section-inner { position: relative; z-index: 2; }
+
+  .cta-section .section-label { color: var(--blue-light); }
+
+  .cta-section h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+
+  .cta-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+    text-align: left;
+  }
+
+  .cta-step {
+    padding: 28px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+  }
+
+  .cta-step-num {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #71C8F0;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .cta-step p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .btn-large {
+    display: inline-block;
+    background: #71C8F0;
+    color: #3B3762;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 20px 52px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    transition: all 0.2s;
+  }
+  .btn-large:hover {
+    background: #5BB8E0;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(113,200,240,0.35);
+  }
+
+  .cta-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ─── FOOTER ──────────────────────────────────────── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .nav-logo { font-size: 18px; }
+
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── ANIMATIONS ──────────────────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    section { padding: 72px 24px; }
+    .hero { padding: 100px 24px 64px; }
+    .situation-grid,
+    .steps,
+    .metrics-row,
+    .case-studies,
+    .eligibility-grid,
+    .cta-steps { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span class="logo-net">net</span><span class="logo-mera">mera</span></div>
+  <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="nav-cta">Book a Discovery Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">For Marketing, Product and CX Teams in Banking &amp; Fintech</div>
+    <h1>You can see the churn.<br><em>You just can't act fast enough.</em></h1>
+    <p class="hero-sub">Netmera unifies your customer data, every engagement channel, and analytics in one platform so you stop guessing and start retaining.</p>
+    <div class="hero-actions">
+      <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-primary">Book a Discovery Call</a>
+      <a href="#how" class="btn-ghost">See how it works ↓</a>
+    </div>
+    <div class="hero-clients">
+      <p>Trusted by regulated enterprises</p>
+      <div class="client-logos">
+        <span class="client-name">DenizBank</span>
+        <span class="client-name">N Kolay</span>
+        <span class="client-name">Turkcell</span>
+        <span class="client-name">Tam Finans</span>
+        <span class="client-name">fastPay</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATION -->
+<section class="situation">
+  <div class="section-inner">
+    <p class="section-label fade-up">The Situation</p>
+    <h2 class="section-heading fade-up">Your data exists. It just doesn't arrive in time.</h2>
+    <p class="section-body fade-up">You have behavioral data, transaction signals, session logs. Somewhere in that stack, there is almost certainly a customer who is about to churn. The problem is that by the time you identify them, the window to act has already closed.</p>
+
+    <div class="situation-grid">
+      <div class="situation-card fade-up">
+        <div class="icon">🔀</div>
+        <h3>Fragmented tools, fragmented truth</h3>
+        <p>Push notifications live in one tool. Email sits in another. In-app messaging runs through a third. Each platform has its own analytics, its own dashboard, its own version of reality. Stitching them together is a manual process that takes time you don't have.</p>
+      </div>
+      <div class="situation-card fade-up">
+        <div class="icon">⏱</div>
+        <h3>Data that arrives too late to act on</h3>
+        <p>By the time your weekly export lands in your inbox, the customer you needed to reach has already made their decision. Real-time insight and real-time action need to live in the same place. Right now, they don't.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="section-inner">
+    <p class="section-label fade-up">What It Costs</p>
+    <h2 class="section-heading fade-up">Finance apps retain just 4.2% of users by Day 30. Most churn happens before you even know it started.</h2>
+    <p class="section-body fade-up">On average, 25% of users return on Day 1. By Day 30 that number drops to 5.7% across all apps. For finance apps specifically, retention at Day 30 sits at just 4.2%, according to Business of Apps. That is not a product problem. In most cases it is a timing problem. The user showed a signal, and nobody reached them at the right moment, on the right channel, with the right message.</p>
+    <p class="section-body fade-up">Lost users rarely return. They go to a competitor whose platform caught the signal and acted on it. And meanwhile, the board is watching the retention curve and asking questions that get harder to answer every quarter.</p>
+
+    <div class="pull-quote fade-up">
+      <p>"We're working on it" is a strategy that has a shelf life.</p>
+    </div>
+
+    <p class="section-body fade-up">The real cost is not just churned users. It is the manual effort of teams working across disconnected tools, delayed decisions, and campaigns that were good ideas three days too late.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <p class="section-label fade-up">How Netmera Works</p>
+    <h2 class="section-heading fade-up">One platform. Customer data, every channel, and analytics together.</h2>
+    <p class="section-body fade-up">Netmera connects to your existing stack via SDK and API. Your existing tools, from attribution platforms to CRMs, plug in alongside it. The moment a customer shows a churn signal, your team triggers a coordinated response across channels. No switching tools. No IT tickets.</p>
+
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-number">01</div>
+        <h3>Connect your data sources</h3>
+        <p>Netmera integrates with your mobile and web apps via SDK and connects to your existing tools through API. Your data flows in automatically from day one.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">02</div>
+        <h3>Set behavioral triggers</h3>
+        <p>Define the signals that matter: session drop-off, abandoned flows, ignored reminders. When a customer matches a condition, the automated journey begins immediately.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">03</div>
+        <h3>Reach them across every channel</h3>
+        <p>Push, email, in-app, SMS, and WhatsApp all coordinated from one panel. Analytics across every channel feed into a single dashboard so you can optimize in real time.</p>
+      </div>
+    </div>
+
+    <div class="deployment-note fade-up">
+      <span class="badge">Built for regulated industries</span>
+      <p>Cloud or on-premise deployment, enterprise-grade security, and a customer list that includes some of the largest banks and fintechs in the region.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="section-inner">
+    <p class="section-label fade-up">Proof</p>
+    <h2 class="section-heading fade-up">Two banks. Two problems. Measurable results on both.</h2>
+
+    <div class="metrics-row">
+      <div class="metric-card fade-up">
+        <div class="stat-number">119%</div>
+        <div class="stat-label">Funnel completion lift</div>
+        <div class="stat-source">N Kolay premium onboarding</div>
+      </div>
+      <div class="metric-card fade-up">
+        <div class="stat-number">10x</div>
+        <div class="stat-label">Click-through rate increase</div>
+        <div class="stat-source">DenizBank Super Limit feature</div>
+      </div>
+      <div class="metric-card fade-up">
+        <div class="stat-number">39.6%</div>
+        <div class="stat-label">Monthly active user growth</div>
+        <div class="stat-source">Tam Finans win-back campaign</div>
+      </div>
+    </div>
+
+    <div class="case-studies">
+      <div class="case-card fade-up">
+        <div class="case-client">N Kolay</div>
+        <h3>Doubling premium membership conversion for a 9-million user banking app</h3>
+        <p>Users were starting the premium onboarding flow and dropping off before completing it. Using Netmera's real-time behavioral triggers and automated multi-step journey, the team fixed it without writing a single line of manual campaign logic.</p>
+        <a href="https://netmera.com/nkolay-case-study/" target="_blank" class="case-link">Read the full story</a>
+        <div class="case-results">
+          <div class="result-item">
+            <span class="result-value">119%</span>
+            <span class="result-desc">Task completion<br>rate increase</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">2x</span>
+            <span class="result-desc">Premium membership<br>conversion</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">+58%</span>
+            <span class="result-desc">Funnel entry<br>growth</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <div class="case-client">DenizBank</div>
+        <h3>Taking a new product feature from invisible to 357,000 monthly applications</h3>
+        <p>Generic placements were not working. After deploying targeted in-app messaging with A/B tested screen placement through Netmera, the Super Limit feature went from overlooked to one of the bank's highest-performing acquisition drivers.</p>
+        <a href="https://netmera.com/denizbank-super-limit-case-study/" target="_blank" class="case-link">Read the full story</a>
+        <div class="case-results">
+          <div class="result-item">
+            <span class="result-value">10x</span>
+            <span class="result-desc">Click-through<br>rate</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">6x</span>
+            <span class="result-desc">Consumer loan<br>sales</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">7x</span>
+            <span class="result-desc">Total loan<br>disbursements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="eligibility">
+  <div class="section-inner">
+    <p class="section-label fade-up">Who This Is For</p>
+    <h2 class="section-heading fade-up">Be honest with yourself before booking a call.</h2>
+    <p class="section-body fade-up">Netmera is not the right fit for every team. We would rather tell you that now than after a contract is signed.</p>
+
+    <div class="eligibility-grid">
+      <div class="elig-card no fade-up">
+        <h3>Do not buy this if...</h3>
+        <ul class="elig-list">
+          <li>Your engagement strategy runs through a single channel. A point solution will serve you better and cost less.</li>
+          <li>Your user base is small and stable with no meaningful churn pressure. The platform is built for scale and will be underutilized at low volumes.</li>
+          <li>CRM decisions run entirely through IT. The speed advantage requires marketing teams to act independently.</li>
+          <li>You need a campaign sent tomorrow with zero onboarding. This is not a plug-and-play tool for one-off sends.</li>
+        </ul>
+      </div>
+
+      <div class="elig-card yes fade-up">
+        <h3>This is exactly right if...</h3>
+        <ul class="elig-list">
+          <li>You run a banking or fintech app with a significant active user base and retention is a board-level conversation.</li>
+          <li>You are managing push, email, and in-app through separate tools and spending real time stitching data together before every decision.</li>
+          <li>You need to act on customer behavior in real time, not after a weekly data export or manual segmentation exercise.</li>
+          <li>You operate in a regulated industry and cannot compromise on security, compliance, or deployment flexibility.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="section-inner">
+    <p class="section-label fade-up">Next Step</p>
+    <h2 class="fade-up">One call.<br>No generic demo.</h2>
+    <p class="fade-up">A focused session built around your stack, your channels, and your retention problem.</p>
+
+    <div class="cta-steps">
+      <div class="cta-step fade-up">
+        <div class="cta-step-num">Step 01</div>
+        <p>A Netmera specialist maps your current retention stack and identifies the gaps in a focused discovery call.</p>
+      </div>
+      <div class="cta-step fade-up">
+        <div class="cta-step-num">Step 02</div>
+        <p>You get a tailored walkthrough of how Netmera would work inside your specific environment, including channels, integrations, and deployment model.</p>
+      </div>
+      <div class="cta-step fade-up">
+        <div class="cta-step-num">Step 03</div>
+        <p>You leave with a clear picture of what is possible and what implementation actually looks like for your team.</p>
+      </div>
+    </div>
+
+    <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-large fade-up">Book Your Discovery Call</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="nav-logo"><span class="logo-net">net</span><span class="logo-mera">mera</span></div>
+  <p>netmera.com</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
