@@ -36,40 +36,6 @@
     font-family: 'Nunito', sans-serif;
   }
 
-  /* ─── NAV ─────────────────────────────────────────── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: rgba(6, 24, 58, 0.96);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .nav-logo {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-    color: var(--white);
-    letter-spacing: -0.5px;
-  }
-
-  .logo-net  { color: #71C8F0; }
-  .logo-mera { color: #A3C24B; }
-
-  .nav-cta {
-    background: #71C8F0;
-    color: var(--white);
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 10px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--blue-light); }
-
   /* ─── HERO ────────────────────────────────────────── */
   .hero {
     min-height: 100vh;
@@ -77,7 +43,7 @@
     display: flex; align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 120px 48px 80px;
+    padding: 80px 48px 80px;
   }
 
   .hero-grid {
@@ -96,7 +62,22 @@
   .hero-content {
     position: relative; z-index: 2;
     max-width: 780px;
+    width: 100%;
   }
+
+  .hero-logo {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    margin-bottom: 40px;
+  }
+
+  .hero-logo .logo-net,
+  .footer-logo .logo-net { color: #71C8F0 !important; }
+
+  .hero-logo .logo-mera,
+  .footer-logo .logo-mera { color: #A3C24B !important; }
 
   .hero-tag {
     display: inline-block;
@@ -649,15 +630,7 @@
     color: rgba(255,255,255,0.35);
   }
 
-  /* ─── FOOTER ──────────────────────────────────────── */
-  footer {
-    background: var(--navy);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 32px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+
 
   footer .nav-logo { font-size: 18px; }
 
@@ -678,39 +651,132 @@
     transform: translateY(0);
   }
 
+  /* ─── PAGE FOOTER */
+  .page-footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 28px 48px;
+  }
+
+  .page-footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .page-footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+
   /* ─── RESPONSIVE ──────────────────────────────────── */
+
+  /* Tablet */
+  @media (max-width: 900px) {
+    .steps { grid-template-columns: 1fr 1fr; }
+    .cta-steps { grid-template-columns: 1fr 1fr; }
+    .metrics-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Mobile */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
-    section { padding: 72px 24px; }
-    .hero { padding: 100px 24px 64px; }
-    .situation-grid,
-    .steps,
-    .metrics-row,
-    .case-studies,
-    .eligibility-grid,
-    .cta-steps { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
+
+    /* Global */
+    section { padding: 64px 20px; }
+
+    /* Hero */
+    .hero { padding: 48px 20px 56px; }
+    .hero h1 { font-size: 36px; letter-spacing: -0.8px; }
+    .hero-sub { font-size: 16px; margin-bottom: 36px; }
+    .hero-logo { font-size: 24px; margin-bottom: 28px; }
+    .hero-tag { font-size: 11px; padding: 5px 14px; margin-bottom: 24px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .btn-primary { width: 100%; text-align: center; padding: 15px 24px; }
+    .hero-clients { margin-top: 48px; }
+    .client-logos { gap: 20px; }
+    .client-name { font-size: 13px; }
+
+    /* Section headings */
+    .section-heading { font-size: 26px; letter-spacing: -0.4px; }
+    .section-body { font-size: 16px; }
+
+    /* Situation */
+    .situation-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+    .situation-card { padding: 24px; }
+    .situation-card h3 { font-size: 16px; }
+
+    /* Pain */
+    .pull-quote { padding: 20px 24px; margin: 32px 0; }
+    .pull-quote p { font-size: 18px; }
+
+    /* How it works */
+    .steps { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+    .step { padding: 28px 20px; }
+    .step-number { font-size: 40px; margin-bottom: 12px; }
+    .deployment-note { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
+
+    /* Proof */
+    .metrics-row { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    .metric-card { padding: 28px 20px; }
+    .stat-number { font-size: 44px; }
+    .case-studies { grid-template-columns: 1fr; gap: 20px; }
+    .case-card { padding: 28px 20px; }
+    .case-card h3 { font-size: 17px; }
+    .case-results { gap: 16px; flex-wrap: wrap; }
+    .result-value { font-size: 22px; }
+
+    /* Eligibility */
+    .eligibility-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+    .elig-card { padding: 28px 20px; }
+    .elig-list li { font-size: 14px; }
+
+    /* CTA section */
+    .cta-section h2 { font-size: 30px; letter-spacing: -0.5px; }
+    .cta-section p { font-size: 16px; margin-bottom: 36px; }
+    .cta-steps { grid-template-columns: 1fr; gap: 12px; margin-bottom: 36px; }
+    .cta-step { padding: 20px; }
+    .btn-large { font-size: 16px; padding: 16px 32px; width: 100%; text-align: center; display: block; }
+
+    /* Footer */
+    .page-footer { padding: 24px 20px; }
+    .page-footer-inner { flex-direction: column; gap: 10px; text-align: center; }
+  }
+
+  /* Small phones */
+  @media (max-width: 390px) {
+    .hero h1 { font-size: 30px; }
+    .section-heading { font-size: 22px; }
+    .stat-number { font-size: 38px; }
+    .pull-quote p { font-size: 16px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo"><span class="logo-net">net</span><span class="logo-mera">mera</span></div>
-  <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="nav-cta">Book a Discovery Call</a>
-</nav>
+
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
+    <div class="hero-logo">
+        <span class="logo-net">net</span><span class="logo-mera">mera</span>
+      </div>
     <div class="hero-tag">For Marketing, Product and CX Teams in Banking &amp; Fintech</div>
     <h1>You can see the churn.<br><em>You just can't act fast enough.</em></h1>
     <p class="hero-sub">Netmera unifies your customer data, every engagement channel, and analytics in one platform so you stop guessing and start retaining.</p>
     <div class="hero-actions">
-      <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-primary">Book a Discovery Call</a>
+      <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-primary">Get a Demo</a>
       <a href="#how" class="btn-ghost">See how it works ↓</a>
     </div>
     <div class="hero-clients">
@@ -903,13 +969,13 @@
   <div class="hero-glow"></div>
   <div class="section-inner">
     <p class="section-label fade-up">Next Step</p>
-    <h2 class="fade-up">One call.<br>No generic demo.</h2>
-    <p class="fade-up">A focused session built around your stack, your channels, and your retention problem.</p>
+    <h2 class="fade-up">A demo built<br>around your problem.</h2>
+    <p class="fade-up">Not a slide deck walkthrough. A focused session built around your stack, your channels, and your actual retention challenge.</p>
 
     <div class="cta-steps">
       <div class="cta-step fade-up">
         <div class="cta-step-num">Step 01</div>
-        <p>A Netmera specialist maps your current retention stack and identifies the gaps in a focused discovery call.</p>
+        <p>A Netmera specialist maps your current retention stack and identifies the gaps before the session, so the demo time is spent on what matters to you.</p>
       </div>
       <div class="cta-step fade-up">
         <div class="cta-step-num">Step 02</div>
@@ -921,15 +987,11 @@
       </div>
     </div>
 
-    <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-large fade-up">Book Your Discovery Call</a>
+    <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-large fade-up">Get a Demo</a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="nav-logo"><span class="logo-net">net</span><span class="logo-mera">mera</span></div>
-  <p>netmera.com</p>
-</footer>
+
 
 <script>
   // Scroll fade-in
