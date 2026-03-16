@@ -142,33 +142,6 @@
   }
   .btn-ghost:hover { color: var(--white); }
 
-  .hero-clients {
-    position: relative; z-index: 2;
-    margin-top: 72px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .hero-clients p {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 20px;
-  }
-
-  .client-logos {
-    display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
-  }
-
-  .client-name {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.5px;
-  }
-
   /* ─── SECTIONS ────────────────────────────────────── */
   section { padding: 100px 48px; }
 
@@ -277,7 +250,7 @@
 
   .steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
     margin-top: 56px;
   }
@@ -313,39 +286,12 @@
     color: var(--gray);
   }
 
-  .deployment-note {
-    margin-top: 48px;
-    padding: 28px 36px;
-    background: var(--sky);
-    border-radius: 12px;
-    display: flex; align-items: center; gap: 20px;
-  }
-
-  .deployment-note .badge {
-    font-family: 'Nunito', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #3B3762;
-    background: rgba(113,200,240,0.25);
-    padding: 6px 12px;
-    border-radius: 100px;
-    white-space: nowrap;
-  }
-
-  .deployment-note p {
-    font-size: 15px;
-    color: var(--navy-mid);
-    line-height: 1.6;
-  }
-
   /* ─── PROOF ───────────────────────────────────────── */
   .proof { background: var(--off-white); }
 
   .metrics-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-bottom: 56px;
   }
@@ -576,7 +522,7 @@
 
   .cta-steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-bottom: 56px;
     text-align: left;
@@ -678,6 +624,21 @@
     color: rgba(255,255,255,0.3);
   }
 
+
+
+
+  .awards-wrap {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .awards-wrap img {
+    max-width: 520px;
+    width: 100%;
+    height: auto;
+  }
+
   /* ─── RESPONSIVE ──────────────────────────────────── */
 
   /* Tablet */
@@ -701,9 +662,6 @@
     .hero-tag { font-size: 11px; padding: 5px 14px; margin-bottom: 24px; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
     .btn-primary { width: 100%; text-align: center; padding: 15px 24px; }
-    .hero-clients { margin-top: 48px; }
-    .client-logos { gap: 20px; }
-    .client-name { font-size: 13px; }
 
     /* Section headings */
     .section-heading { font-size: 26px; letter-spacing: -0.4px; }
@@ -722,9 +680,7 @@
     .steps { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
     .step { padding: 28px 20px; }
     .step-number { font-size: 40px; margin-bottom: 12px; }
-    .deployment-note { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
-
-    /* Proof */
+     /* Proof */
     .metrics-row { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
     .metric-card { padding: 28px 20px; }
     .stat-number { font-size: 44px; }
@@ -745,6 +701,16 @@
     .cta-steps { grid-template-columns: 1fr; gap: 12px; margin-bottom: 36px; }
     .cta-step { padding: 20px; }
     .btn-large { font-size: 16px; padding: 16px 32px; width: 100%; text-align: center; display: block; }
+
+
+    /* Logos */
+    .logos-section { padding: 40px 20px; }
+    .logos-row { gap: 24px; }
+    .logo-item img { height: 28px; }
+
+    /* Awards */
+    .awards-section { padding: 64px 20px; }
+    .awards-wrap img { max-width: 100%; }
 
     /* Footer */
     .page-footer { padding: 24px 20px; }
@@ -779,18 +745,75 @@
       <a href="https://netmera.com/get-a-demo/?utm_campaign=website_header" target="_blank" class="btn-primary">Get a Demo</a>
       <a href="#how" class="btn-ghost">See how it works ↓</a>
     </div>
-    <div class="hero-clients">
-      <p>Trusted by regulated enterprises</p>
-      <div class="client-logos">
-        <span class="client-name">DenizBank</span>
-        <span class="client-name">N Kolay</span>
-        <span class="client-name">Turkcell</span>
-        <span class="client-name">Tam Finans</span>
-        <span class="client-name">fastPay</span>
+  </div>
+</section>
+
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="section-inner">
+    <p class="section-label fade-up">Proof</p>
+    <h2 class="section-heading fade-up">Two banks. Two problems. Measurable results on both.</h2>
+
+    <div class="metrics-row">
+      <div class="metric-card fade-up">
+        <div class="stat-number">119%</div>
+        <div class="stat-label">Funnel completion lift</div>
+        <div class="stat-source">N Kolay premium onboarding</div>
+      </div>
+      <div class="metric-card fade-up">
+        <div class="stat-number">10x</div>
+        <div class="stat-label">Click-through rate increase</div>
+        <div class="stat-source">DenizBank Super Limit feature</div>
+      </div>
+    </div>
+
+    <div class="case-studies">
+      <div class="case-card fade-up">
+        <div class="case-client">N Kolay</div>
+        <h3>Doubling premium membership conversion for a 9-million user banking app</h3>
+        <p>Users were starting the premium onboarding flow and dropping off before completing it. Using Netmera's real-time behavioral triggers and automated multi-step journey, the team fixed it without writing a single line of manual campaign logic.</p>
+        <a href="https://netmera.com/nkolay-case-study/" target="_blank" class="case-link">Read the full story</a>
+        <div class="case-results">
+          <div class="result-item">
+            <span class="result-value">119%</span>
+            <span class="result-desc">Task completion<br>rate increase</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">2x</span>
+            <span class="result-desc">Premium membership<br>conversion</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">+58%</span>
+            <span class="result-desc">Funnel entry<br>growth</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <div class="case-client">DenizBank</div>
+        <h3>Taking a new product feature from invisible to 357,000 monthly applications</h3>
+        <p>Generic placements were not working. After deploying targeted in-app messaging with A/B tested screen placement through Netmera, the Super Limit feature went from overlooked to one of the bank's highest-performing acquisition drivers.</p>
+        <a href="https://netmera.com/denizbank-super-limit-case-study/" target="_blank" class="case-link">Read the full story</a>
+        <div class="case-results">
+          <div class="result-item">
+            <span class="result-value">10x</span>
+            <span class="result-desc">Click-through<br>rate</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">6x</span>
+            <span class="result-desc">Consumer loan<br>sales</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">7x</span>
+            <span class="result-desc">Total loan<br>disbursements</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- SITUATION -->
 <section class="situation">
@@ -852,81 +875,6 @@
         <div class="step-number">03</div>
         <h3>Reach them across every channel</h3>
         <p>Push, email, in-app, SMS, and WhatsApp all coordinated from one panel. Analytics across every channel feed into a single dashboard so you can optimize in real time.</p>
-      </div>
-    </div>
-
-    <div class="deployment-note fade-up">
-      <span class="badge">Built for regulated industries</span>
-      <p>Cloud or on-premise deployment, enterprise-grade security, and a customer list that includes some of the largest banks and fintechs in the region.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="proof">
-  <div class="section-inner">
-    <p class="section-label fade-up">Proof</p>
-    <h2 class="section-heading fade-up">Two banks. Two problems. Measurable results on both.</h2>
-
-    <div class="metrics-row">
-      <div class="metric-card fade-up">
-        <div class="stat-number">119%</div>
-        <div class="stat-label">Funnel completion lift</div>
-        <div class="stat-source">N Kolay premium onboarding</div>
-      </div>
-      <div class="metric-card fade-up">
-        <div class="stat-number">10x</div>
-        <div class="stat-label">Click-through rate increase</div>
-        <div class="stat-source">DenizBank Super Limit feature</div>
-      </div>
-      <div class="metric-card fade-up">
-        <div class="stat-number">39.6%</div>
-        <div class="stat-label">Monthly active user growth</div>
-        <div class="stat-source">Tam Finans win-back campaign</div>
-      </div>
-    </div>
-
-    <div class="case-studies">
-      <div class="case-card fade-up">
-        <div class="case-client">N Kolay</div>
-        <h3>Doubling premium membership conversion for a 9-million user banking app</h3>
-        <p>Users were starting the premium onboarding flow and dropping off before completing it. Using Netmera's real-time behavioral triggers and automated multi-step journey, the team fixed it without writing a single line of manual campaign logic.</p>
-        <a href="https://netmera.com/nkolay-case-study/" target="_blank" class="case-link">Read the full story</a>
-        <div class="case-results">
-          <div class="result-item">
-            <span class="result-value">119%</span>
-            <span class="result-desc">Task completion<br>rate increase</span>
-          </div>
-          <div class="result-item">
-            <span class="result-value">2x</span>
-            <span class="result-desc">Premium membership<br>conversion</span>
-          </div>
-          <div class="result-item">
-            <span class="result-value">+58%</span>
-            <span class="result-desc">Funnel entry<br>growth</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-card fade-up">
-        <div class="case-client">DenizBank</div>
-        <h3>Taking a new product feature from invisible to 357,000 monthly applications</h3>
-        <p>Generic placements were not working. After deploying targeted in-app messaging with A/B tested screen placement through Netmera, the Super Limit feature went from overlooked to one of the bank's highest-performing acquisition drivers.</p>
-        <a href="https://netmera.com/denizbank-super-limit-case-study/" target="_blank" class="case-link">Read the full story</a>
-        <div class="case-results">
-          <div class="result-item">
-            <span class="result-value">10x</span>
-            <span class="result-desc">Click-through<br>rate</span>
-          </div>
-          <div class="result-item">
-            <span class="result-value">6x</span>
-            <span class="result-desc">Consumer loan<br>sales</span>
-          </div>
-          <div class="result-item">
-            <span class="result-value">7x</span>
-            <span class="result-desc">Total loan<br>disbursements</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
