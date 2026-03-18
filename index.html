@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Netmera — Customer Engagement & Growth Platform</title>
+<title>Netmera: Customer Engagement & Growth Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -24,12 +24,12 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-h);line-height:1.2}
 .ctr{max-width:1200px;margin:0 auto;padding:0 32px}
 a{text-decoration:none;color:inherit}
 
-/* ═══ TOPBAR ═══ */
+/* TOPBAR */
 .topbar{background:linear-gradient(90deg,#71C8F0,#8be0a8,#a8e6a3);text-align:center;padding:11px 16px}
 .topbar a{color:var(--purple-dark);font-size:.875rem;font-weight:600;font-family:var(--font-h)}
 .topbar a:hover{opacity:.7}
 
-/* ═══ NAV ═══ */
+/* NAV */
 .nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid rgba(59,55,98,.05)}
 .nav .ctr{display:flex;align-items:center;justify-content:space-between;height:68px}
 .nav-logo{font-family:var(--font-h);font-size:1.55rem;font-weight:800;letter-spacing:-.02em}
@@ -47,7 +47,7 @@ a{text-decoration:none;color:inherit}
 .btn-ghost{background:0 0;border:2px solid var(--purple);color:var(--purple);padding:10px 24px;font-size:.85rem}
 .btn-ghost:hover{background:var(--purple);color:var(--white)}
 
-/* ═══ HERO ═══ */
+/* HERO */
 .hero{background:linear-gradient(135deg,#5aaed4 0%,#3B3762 55%,#2a2548 100%);padding:80px 0 100px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-180px;right:-180px;width:550px;height:550px;background:radial-gradient(circle,rgba(113,200,240,.13) 0%,transparent 70%);border-radius:50%}
 .hero::after{content:'';position:absolute;bottom:-120px;left:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(78,205,196,.08) 0%,transparent 70%);border-radius:50%}
@@ -85,7 +85,7 @@ a{text-decoration:none;color:inherit}
 .m-chart{flex:1;display:flex;align-items:flex-end;gap:6px;padding-top:4px}
 .m-bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,rgba(113,200,240,.6),rgba(113,200,240,.2));transition:height .5s ease}
 
-/* ═══ LOGOS ═══ */
+/* LOGOS */
 .logos{padding:44px 0;background:var(--white);border-bottom:1px solid rgba(59,55,98,.04)}
 .logos-label{text-align:center;font-size:.8rem;color:var(--gray-400);font-weight:500;letter-spacing:.03em;margin-bottom:24px}
 .logos-wrap{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -95,7 +95,7 @@ a{text-decoration:none;color:inherit}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ═══ SECTION UTILS ═══ */
+/* SECTION UTILS */
 .sec{padding:96px 0}
 .sec-head{text-align:center;margin-bottom:56px}
 .sec-head h2{font-size:2.3rem;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
@@ -111,21 +111,13 @@ a{text-decoration:none;color:inherit}
 .rv{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease}
 .rv.vis{opacity:1;transform:translateY(0)}
 
-/* ═══ PAIN POINTS ═══ */
-.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.pain-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--R);padding:32px 28px;transition:all .3s var(--ease);position:relative;overflow:hidden}
-.pain-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--blue);transition:height .35s ease}
-.pain-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.18)}
-.pain-card:hover::after{height:100%}
-.pc-q{font-family:var(--font-h);font-size:1.08rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.35}
-.pc-a{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.6;margin-bottom:18px}
-.pc-proof{padding-top:14px;border-top:1px solid rgba(255,255,255,.07);display:flex;gap:10px;align-items:baseline}
-.pc-brand{font-family:var(--font-h);font-weight:700;font-size:.78rem;color:var(--blue);white-space:nowrap}
-.pc-res{color:rgba(255,255,255,.5);font-size:.8rem;line-height:1.5}
-.pc-res a{color:var(--blue);font-weight:600}
-.pc-res a:hover{text-decoration:underline}
+/* PAIN POINTS */
+.pain-single{text-align:center;padding:56px 32px;max-width:760px;margin:0 auto}
+.pain-single .line{font-family:var(--font-h);font-size:2rem;font-weight:800;color:var(--white);line-height:1.25;margin-bottom:6px}
+.pain-single .line.muted{color:rgba(255,255,255,.45)}
+.pain-single .not-anymore{font-family:var(--font-h);font-size:1.5rem;font-weight:700;margin-top:28px;background:linear-gradient(90deg,#71C8F0,#4ECDC4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-/* ═══ CAPABILITIES TABS ═══ */
+/* CAPABILITIES TABS */
 .caps-tabs{display:flex;gap:4px;background:var(--white);border-radius:var(--R);padding:5px;margin-bottom:36px;box-shadow:0 2px 12px rgba(59,55,98,.07);overflow-x:auto}
 .cap-tab{flex:1;padding:13px 16px;border-radius:10px;font-family:var(--font-h);font-size:.82rem;font-weight:600;color:var(--gray-400);background:0 0;border:none;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap;text-align:center}
 .cap-tab:hover{color:var(--purple);background:var(--gray-50)}
@@ -146,7 +138,7 @@ a{text-decoration:none;color:inherit}
 .cv-row{display:grid;gap:8px}
 .cv-row.c2{grid-template-columns:1fr 1fr}.cv-row.c3{grid-template-columns:1fr 1fr 1fr}
 
-/* ═══ AI SECTION ═══ */
+/* AI SECTION */
 .ai-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(113,200,240,.1);border:1px solid rgba(113,200,240,.18);padding:7px 18px;border-radius:50px;color:var(--blue);font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:18px}
 .ai-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:32px}
 .ai-tab{padding:11px 26px;border-radius:50px;font-family:var(--font-h);font-size:.85rem;font-weight:600;color:rgba(255,255,255,.55);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:all .25s var(--ease)}
@@ -170,7 +162,7 @@ a{text-decoration:none;color:inherit}
 .ai-step-n{width:26px;height:26px;border-radius:50%;background:var(--blue);color:var(--purple-dark);font-family:var(--font-h);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ai-step-t{color:rgba(255,255,255,.75);font-size:.86rem}
 
-/* ═══ SUCCESS STORIES ═══ */
+/* SUCCESS STORIES */
 .stories-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
 .story-card{border-radius:var(--R);overflow:hidden;background:var(--white);border:1px solid rgba(59,55,98,.06);transition:all .3s var(--ease)}
 .story-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(59,55,98,.12)}
@@ -183,7 +175,7 @@ a{text-decoration:none;color:inherit}
 .story-link{display:inline-flex;align-items:center;gap:5px;color:var(--blue);font-weight:600;font-size:.85rem;transition:gap .2s}
 .story-link:hover{gap:9px}
 
-/* ═══ CHANNELS ═══ */
+/* CHANNELS */
 .ch-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
 .ch-grid-b{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
 .ch-grid-c{display:grid;grid-template-columns:1fr;gap:16px;max-width:33.33%;margin:0 auto}
@@ -193,7 +185,7 @@ a{text-decoration:none;color:inherit}
 .ch-card h4{color:var(--white);font-size:.9rem;font-weight:700;margin-bottom:7px}
 .ch-card p{color:rgba(255,255,255,.5);font-size:.8rem;line-height:1.55}
 
-/* ═══ AWARDS ═══ */
+/* AWARDS */
 .awards{padding:80px 0;background:linear-gradient(180deg,var(--purple-dark),var(--purple));text-align:center}
 .awards h2{font-size:2.1rem;color:var(--white);font-weight:800;margin-bottom:6px}
 .aw-stars{display:flex;justify-content:center;gap:5px;margin-bottom:6px}
@@ -211,35 +203,38 @@ a{text-decoration:none;color:inherit}
 .aw-logo span{color:rgba(255,255,255,.65);font-family:var(--font-h);font-weight:700;font-size:.82rem}
 .aw-logo small{color:rgba(255,255,255,.35);font-size:.62rem;font-weight:500}
 
-/* ═══ SCALABILITY ═══ */
+/* SCALABILITY */
 .scale-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:40px}
 .sc-stat{background:var(--gray-50);border-radius:var(--R);padding:32px 18px;text-align:center;border:1px solid transparent;transition:all .3s var(--ease)}
 .sc-stat:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(59,55,98,.08)}
 .sc-v{font-family:var(--font-h);font-size:2.4rem;font-weight:800;color:var(--purple);margin-bottom:4px}
 .sc-v em{font-style:normal;color:var(--blue)}
 .sc-l{color:var(--gray-400);font-size:.86rem}
-.scale-text{text-align:center;color:var(--gray-600);font-size:.94rem;margin-bottom:24px}
+.scale-text{text-align:center;color:var(--gray-600);font-size:.94rem;margin-bottom:12px}
 .scale-proof{background:var(--gray-50);border-radius:var(--R);padding:18px 24px;display:inline-block;margin:0 auto}
 .scale-proof p{color:var(--purple);font-size:.9rem}
 .scale-proof a{color:var(--blue);font-weight:600}
 
-/* ═══ COMPLIANCE ═══ */
+/* COMPLIANCE */
 .compliance{padding:64px 0;background:var(--purple)}
 .compliance .ctr{display:flex;align-items:center;justify-content:space-between;gap:40px}
 .comp-text h3{color:var(--white);font-size:1.5rem;font-weight:700;margin-bottom:10px}
 .comp-text p{color:rgba(255,255,255,.6);font-size:.92rem;line-height:1.65;max-width:540px}
+.comp-cta{margin-top:18px}
+.comp-cta a{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:600;font-size:.9rem;transition:gap .2s}
+.comp-cta a:hover{gap:10px}
 .certs{display:flex;gap:12px;flex-wrap:wrap}
 .cert{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 16px;color:rgba(255,255,255,.75);font-size:.76rem;font-weight:600;white-space:nowrap}
 
-/* ═══ INTEGRATIONS ═══ */
+/* INTEGRATIONS */
 .integrations{padding:64px 0;background:var(--off-white);text-align:center}
 .integrations h3{font-size:1.5rem;color:var(--purple);font-weight:700;margin-bottom:6px}
 .integrations>p,.integrations .ctr>p{color:var(--gray-400);font-size:.92rem;margin-bottom:36px}
-.int-icons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-.int-icon{width:60px;height:60px;border-radius:14px;background:var(--white);box-shadow:0 2px 10px rgba(59,55,98,.06);display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:var(--purple);font-family:var(--font-h);transition:all .25s var(--ease);border:1px solid rgba(59,55,98,.04)}
-.int-icon:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 6px 18px rgba(59,55,98,.1)}
+.int-icons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;max-width:640px;margin:0 auto}
+.int-icon{width:72px;height:72px;border-radius:50%;background:var(--white);box-shadow:0 2px 10px rgba(59,55,98,.08);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease);border:1px solid rgba(59,55,98,.06)}
+.int-icon:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 6px 18px rgba(59,55,98,.12)}
 
-/* ═══ BLOG ═══ */
+/* BLOG */
 .blog-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
 .blog-card{border-radius:var(--R);overflow:hidden;background:var(--white);border:1px solid rgba(59,55,98,.06);transition:all .3s var(--ease)}
 .blog-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(59,55,98,.12)}
@@ -249,7 +244,7 @@ a{text-decoration:none;color:inherit}
 .blog-title{font-family:var(--font-h);font-size:.98rem;font-weight:600;color:var(--purple);line-height:1.4;margin-bottom:8px}
 .blog-excerpt{color:var(--gray-400);font-size:.85rem;line-height:1.6}
 
-/* ═══ CTA ═══ */
+/* CTA */
 .final-cta{padding:96px 0;background:linear-gradient(135deg,#5aaed4 0%,#3B3762 55%,#2a2548 100%);text-align:center;position:relative;overflow:hidden}
 .final-cta::before{content:'';position:absolute;top:-180px;right:-180px;width:450px;height:450px;background:radial-gradient(circle,rgba(113,200,240,.08) 0%,transparent 70%);border-radius:50%}
 .final-cta .ctr{position:relative;z-index:2}
@@ -257,47 +252,44 @@ a{text-decoration:none;color:inherit}
 .final-cta p{color:rgba(255,255,255,.65);font-size:1.02rem;margin-bottom:36px}
 .cta-btns{display:flex;justify-content:center;gap:14px}
 
-/* ═══ FAQ ═══ */
-.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:7px}
-.faq-item{background:var(--white);border-radius:var(--R);overflow:hidden;border:1px solid rgba(59,55,98,.05);transition:border-color .25s}
-.faq-item:hover{border-color:rgba(113,200,240,.25)}
-.faq-q{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:14px}
-.faq-q h4{font-size:.92rem;font-weight:600;color:var(--purple);line-height:1.4}
-.faq-tog{width:26px;height:26px;border-radius:50%;background:var(--gray-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s var(--ease)}
-.faq-tog svg{width:12px;height:12px;stroke:var(--purple);transition:transform .25s var(--ease)}
-.faq-item.open .faq-tog{background:var(--blue)}
-.faq-item.open .faq-tog svg{stroke:var(--white);transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-a-inner{padding:0 24px 20px;color:var(--gray-600);font-size:.9rem;line-height:1.7}
-
-/* ═══ FOOTER ═══ */
-.footer{background:var(--purple-deeper);padding:56px 0 28px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+/* FOOTER */
+.footer{background:var(--purple-deeper);padding:56px 0 0}
+.footer-brand{padding:0 0 40px}
 .f-brand{font-family:var(--font-h);font-size:1.4rem;font-weight:800;margin-bottom:10px}
 .f-brand .c1{color:#71C8F0}.f-brand .c2{color:#4ECDC4}.f-brand .c3{color:rgba(255,255,255,.8)}
-.f-desc{color:rgba(255,255,255,.4);font-size:.85rem;line-height:1.6;max-width:300px}
-.f-col h5{color:var(--white);font-family:var(--font-h);font-size:.8rem;font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
-.f-col a{display:block;color:rgba(255,255,255,.4);font-size:.85rem;margin-bottom:9px;transition:color .2s}
+.f-desc{color:rgba(255,255,255,.4);font-size:.85rem;line-height:1.6;max-width:300px;margin-bottom:32px}
+.footer-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:32px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.05)}
+.f-col h5{color:var(--white);font-family:var(--font-h);font-size:.8rem;font-weight:700;margin-bottom:18px;text-transform:uppercase;letter-spacing:.06em}
+.f-col a{display:block;color:rgba(255,255,255,.45);font-size:.83rem;margin-bottom:10px;transition:color .2s}
 .f-col a:hover{color:var(--blue)}
-.f-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:20px;display:flex;justify-content:space-between;align-items:center}
-.f-bottom p{color:rgba(255,255,255,.25);font-size:.78rem}
-.f-socials{display:flex;gap:10px}
-.f-social{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.75rem;font-weight:600;transition:all .2s}
+.f-bottom{padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.f-bottom p{color:rgba(255,255,255,.28);font-size:.78rem}
+.f-bottom-links{display:flex;gap:16px;flex-wrap:wrap}
+.f-bottom-links a{color:rgba(255,255,255,.4);font-size:.78rem;transition:color .2s}
+.f-bottom-links a:hover{color:var(--blue)}
+.f-bottom-right{display:flex;align-items:center;gap:16px}
+.f-socials{display:flex;gap:8px}
+.f-social{width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.75rem;font-weight:600;transition:all .2s}
 .f-social:hover{background:var(--blue);color:var(--purple-dark)}
+.f-badges{display:flex;gap:10px;align-items:center}
+.f-badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.f-badge-title{color:rgba(255,255,255,.7);font-family:var(--font-h);font-weight:700;font-size:.7rem}
+.f-badge-sub{color:rgba(255,255,255,.35);font-size:.58rem;line-height:1.3;text-align:center}
 
-/* ═══ RESPONSIVE ═══ */
+/* RESPONSIVE */
 @media(max-width:1024px){
   .hero .ctr{grid-template-columns:1fr;text-align:center}
   .hero-desc{margin:0 auto 36px}.hero-btns{justify-content:center}
   .hero-visual{display:none}
-  .pain-grid{grid-template-columns:1fr}
   .cap-panel.on,.ai-slide.on{grid-template-columns:1fr}
   .stories-grid,.blog-grid{grid-template-columns:1fr 1fr}
   .ch-grid,.ch-grid-b{grid-template-columns:1fr 1fr}
   .ch-grid-c{grid-template-columns:1fr;max-width:100%}
   .scale-stats{grid-template-columns:1fr 1fr}
   .compliance .ctr{flex-direction:column;text-align:center}
-  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-nav{grid-template-columns:1fr 1fr 1fr}
+  .f-bottom{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:640px){
   .sec{padding:64px 0}
@@ -309,7 +301,7 @@ a{text-decoration:none;color:inherit}
   .ch-grid,.ch-grid-b,.ch-grid-c{grid-template-columns:1fr}
   .cta-btns{flex-direction:column;align-items:center}
   .nav-links{display:none}
-  .footer-grid{grid-template-columns:1fr}
+  .footer-nav{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -323,25 +315,25 @@ a{text-decoration:none;color:inherit}
   <div class="ctr">
     <a href="#" class="nav-logo"><span class="c1">net</span><span class="c2">me</span><span class="c3">ra</span></a>
     <ul class="nav-links">
-      <li><a href="#">Platform ↓</a></li>
-      <li><a href="#">Industries ↓</a></li>
-      <li><a href="#">Company ↓</a></li>
-      <li><a href="#">Resources ↓</a></li>
+      <li><a href="#">Platform</a></li>
+      <li><a href="#">Industries</a></li>
+      <li><a href="#">Company</a></li>
+      <li><a href="#">Resources</a></li>
     </ul>
-    <div><a href="#" class="btn btn-ghost">Talk to Sales</a></div>
+    <div><a href="#" class="btn btn-ghost">Get a Demo</a></div>
   </div>
 </nav>
 
-<!-- ═══════════ HERO ═══════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="ctr">
     <div class="hero-content">
       <div class="hero-cat">Customer Engagement & Growth Platform</div>
-      <h1>Catch every signal.<br><em>Act on it instantly.</em></h1>
-      <p class="hero-desc">One platform for unified data, automated cross-channel journeys, and real-time analytics. AI predicts, creates, and acts — so marketers, product owners, and CX teams focus on growth, with full independence from IT.</p>
+      <h1>Reach every customer with <em>AI that never slows down.</em></h1>
+      <p class="hero-desc">One platform for unified data, automated cross-channel journeys, and real-time analytics. AI predicts, creates, and acts so marketing, CX, and product teams reduce churn, grow revenue, and personalize every interaction.</p>
       <div class="hero-btns">
         <a href="#" class="btn btn-white">See Success Stories</a>
-        <a href="#" class="btn btn-outline">Talk to Sales</a>
+        <a href="#" class="btn btn-outline">Get a Demo</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -386,7 +378,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ LOGOS ═══════════ -->
+<!-- LOGOS -->
 <section class="logos">
   <p class="logos-label">Trusted by teams across ecommerce, media, telecom, finance & fintech, and retail</p>
   <div class="logos-wrap">
@@ -405,44 +397,27 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ PAIN POINTS ═══════════ -->
+<!-- PAIN POINTS -->
 <section class="sec dark">
   <div class="ctr">
-    <div class="sec-head rv">
-      <h2>Where every team gets stuck — and exactly how it stops</h2>
-      <p>These aren't new problems. But for the first time, one platform handles all of them.</p>
+    <div class="sec-head rv" style="margin-bottom:28px">
+      <h2>Where every team gets stuck, and exactly how it stops</h2>
     </div>
-    <div class="pain-grid">
-      <div class="pain-card rv">
-        <div class="pc-q">My data is everywhere.</div>
-        <div class="pc-a">Netmera unifies it all into one customer profile. Every action, every touchpoint, right in front of you.</div>
-        <div class="pc-proof"><span class="pc-brand">beIN CONNECT</span><span class="pc-res">Segmentation on unified profiles, 3x new subscriptions. <a href="#">See what worked →</a></span></div>
-      </div>
-      <div class="pain-card rv">
-        <div class="pc-q">I just need to launch one campaign. But it takes forever.</div>
-        <div class="pc-a">Netmera puts everything in your hands. Launch it today, the way you planned.</div>
-        <div class="pc-proof"><span class="pc-brand">Tam Finans</span><span class="pc-res">50% faster campaign setup, no IT dependency. <a href="#">See how they did it →</a></span></div>
-      </div>
-      <div class="pain-card rv">
-        <div class="pc-q">The tools keep growing. The problems don't shrink.</div>
-        <div class="pc-a">Finally, data + engagement + analytics in one place, working the way it should.</div>
-        <div class="pc-proof"><span class="pc-brand">Pluxee</span><span class="pc-res">Web, app, and email — 3.7% lead conversion. <a href="#">See their strategy →</a></span></div>
-      </div>
-      <div class="pain-card rv">
-        <div class="pc-q">My boss wants ROI. I have no real answer.</div>
-        <div class="pc-a">Netmera's Dashboard flags what's working and what's not, in real time. Severity scores, trend comparisons, revenue impact — all visible the moment you log in.</div>
-        <div class="pc-proof"><span class="pc-brand">N Kolay</span><span class="pc-res">Saw the drop-offs, fixed the flow, 119.6% more completions. <a href="#">Here's how →</a></span></div>
-      </div>
+    <div class="pain-single rv">
+      <div class="line">One customer.</div>
+      <div class="line">Scattered data.</div>
+      <div class="line muted">Every touchpoint tells a different story.</div>
+      <div class="not-anymore">Not anymore.</div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ CAPABILITIES ═══════════ -->
+<!-- CAPABILITIES -->
 <section class="sec light">
   <div class="ctr">
     <div class="sec-head rv">
-      <h2>Everything your team needs for engagement & growth</h2>
-      <p>Customer data comes in, decisions happen, campaigns run — through the core capabilities teams use every day.</p>
+      <h2>Everything your team needs for engagement & growth. In one place.</h2>
+      <p>Customer data comes in, decisions happen, campaigns run, through the core capabilities teams use every day.</p>
     </div>
     <div class="caps-tabs" id="capsTabs">
       <button class="cap-tab on" data-t="data">Data Management</button>
@@ -475,7 +450,7 @@ a{text-decoration:none;color:inherit}
     <div class="cap-panel" id="p-analytics">
       <div class="cap-txt">
         <h3>Analytics</h3>
-        <p>See where users drop off, which campaigns bring real revenue, and which channel performs better for each audience. Dashboards, reports, and funnel analysis — all in one place.</p>
+        <p>See where users drop off, which campaigns bring real revenue, and which channel performs better for each audience. Dashboards, reports, and funnel analysis, all in one place.</p>
         <a href="#">Learn about Analytics →</a>
       </div>
       <div class="cap-vis"><div class="cv-inner">
@@ -540,7 +515,7 @@ a{text-decoration:none;color:inherit}
     <div class="cap-panel" id="p-pers">
       <div class="cap-txt">
         <h3>Personalization</h3>
-        <p>Every customer gets a different experience. From mobile push to web — including A/B tested content and personalized messaging across every channel your team manages.</p>
+        <p>Every customer gets a different experience. From mobile push to web, including A/B tested content and personalized messaging across every channel your team manages.</p>
         <a href="#">How personalization works →</a>
       </div>
       <div class="cap-vis"><div class="cv-inner">
@@ -578,12 +553,12 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ AI SECTION ═══════════ -->
+<!-- AI SECTION -->
 <section class="sec dark" style="position:relative;overflow:hidden">
   <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(113,200,240,.06) 0%,transparent 70%);border-radius:50%"></div>
   <div class="ctr" style="position:relative;z-index:2">
     <div class="sec-head rv">
-      <div class="ai-badge">✦ N-Act AI</div>
+      <div class="ai-badge">✦ Netmera AI</div>
       <h2>The only AI built to obsess over your customers 24/7</h2>
       <p>Predict behavior. Generate content. Automate execution. Speed and relevance, every time.</p>
     </div>
@@ -614,7 +589,7 @@ a{text-decoration:none;color:inherit}
       <div class="ai-vis">
         <div class="ai-gen-box">
           <div class="ai-gen-label">Generated Push Notification</div>
-          <div class="ai-gen-text">"Your favorites are selling fast — grab 20% off before midnight!"</div>
+          <div class="ai-gen-text">"Your favorites are selling fast. Grab 20% off before midnight!"</div>
           <div class="ai-gen-tags"><span class="ai-gen-tag">Variant 1</span><span class="ai-gen-tag">Variant 2</span><span class="ai-gen-tag">Variant 3</span></div>
         </div>
         <div class="ai-gen-box">
@@ -633,13 +608,13 @@ a{text-decoration:none;color:inherit}
         <div class="ai-step"><div class="ai-step-n">1</div><div class="ai-step-t">You describe: "Re-engage cart abandoners from last 7 days"</div></div>
         <div class="ai-step"><div class="ai-step-n">2</div><div class="ai-step-t">AI selects audience: 4,218 matching users</div></div>
         <div class="ai-step"><div class="ai-step-n">3</div><div class="ai-step-t">AI maps journey: Push → Wait 2h → Email → SMS fallback</div></div>
-        <div class="ai-step"><div class="ai-step-n">4</div><div class="ai-step-t">Campaign launches — you review and approve</div></div>
+        <div class="ai-step"><div class="ai-step-n">4</div><div class="ai-step-t">Campaign launches, you review and approve</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ SUCCESS STORIES ═══════════ -->
+<!-- SUCCESS STORIES -->
 <section class="sec white-sec">
   <div class="ctr">
     <div class="sec-head rv">
@@ -681,7 +656,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ CHANNELS ═══════════ -->
+<!-- CHANNELS -->
 <section class="sec dark">
   <div class="ctr">
     <div class="sec-head rv">
@@ -689,7 +664,7 @@ a{text-decoration:none;color:inherit}
       <p>From quick updates to richer conversations, engagement continues across the channels customers use.</p>
     </div>
     <div class="ch-grid">
-      <div class="ch-card rv"><div class="ch-icon">📱</div><h4>Push</h4><p>Reach users on mobile and web, even when the app is closed. Timely, relevant messages that land on lock screens, desktops, and browsers. Built to get opened.</p></div>
+      <div class="ch-card rv"><div class="ch-icon">📱</div><h4>Mobile Push</h4><p>Reach users instantly, even when the app is closed. Timely, relevant messages that land on lock screens. Built to get opened.</p></div>
       <div class="ch-card rv"><div class="ch-icon">✉️</div><h4>Email</h4><p>Deliver detailed, personalized content that keeps your brand top of mind and drives meaningful action over time.</p></div>
       <div class="ch-card rv"><div class="ch-icon">💬</div><h4>SMS</h4><p>Few channels get this kind of attention. High open rates, fast delivery, and real impact on conversions.</p></div>
     </div>
@@ -699,12 +674,12 @@ a{text-decoration:none;color:inherit}
       <div class="ch-card rv"><div class="ch-icon">⚡</div><h4>Live Activities</h4><p>Keep users informed with real-time updates on their lock screen. No need to open the app at all.</p></div>
     </div>
     <div class="ch-grid-c">
-      <div class="ch-card rv"><div class="ch-icon">🪟</div><h4>Web Pop-ups</h4><p>Engage interest, capture feedback, run quick surveys, and push visitors toward action before they leave.</p></div>
+      <div class="ch-card rv"><div class="ch-icon">🪟</div><h4>Web Messaging</h4><p>Engage interest with push notifications and popups, capture feedback, run quick surveys, and push visitors toward action before they leave.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ AWARDS ═══════════ -->
+<!-- AWARDS -->
 <section class="awards">
   <div class="ctr rv">
     <h2>Proven. Tested. Trusted.</h2>
@@ -723,7 +698,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ SCALABILITY ═══════════ -->
+<!-- SCALABILITY -->
 <section class="sec white-sec">
   <div class="ctr" style="text-align:center">
     <div class="sec-head rv">
@@ -736,17 +711,19 @@ a{text-decoration:none;color:inherit}
       <div class="sc-stat"><div class="sc-v">200TB<em>+</em></div><div class="sc-l">Real-Time Data</div></div>
       <div class="sc-stat"><div class="sc-v">100<em>%</em></div><div class="sc-l">Uptime</div></div>
     </div>
-    <p class="scale-text rv">Send millions of notifications in seconds. 100% uptime for mission-critical campaigns.</p>
+    <p class="scale-text rv">30B+ events monthly, 500M+ users, 200TB+ real-time data.</p>
+    <p class="scale-text rv">Send millions of notifications in seconds. 100% uptime for mission-critical campaigns. Zero delivery failures.</p>
     <div class="scale-proof rv"><p>Every goal alert Mackolik sends runs on this. <a href="#">The story behind 20K+ daily fast push alerts →</a></p></div>
   </div>
 </section>
 
-<!-- ═══════════ COMPLIANCE ═══════════ -->
+<!-- COMPLIANCE -->
 <section class="compliance">
   <div class="ctr rv">
     <div class="comp-text">
       <h3>Grow faster with compliance solved</h3>
-      <p>Multi-certified infrastructure with ISO 20000, ISO 27017, ISO/IEC 27701, and ISO 22301. GDPR, KVKK, BDKK compliant. Trusted by banks and regulated industries worldwide.</p>
+      <p>Multi-certified infrastructure with ISO 20000, ISO 27017, ISO/IEC 27701, and ISO 22301. GDPR, KVKK, BDKK compliant. Independently tested with regular penetration assessments. Trusted by banks and regulated industries worldwide.</p>
+      <div class="comp-cta"><a href="#">View Security Documentation →</a></div>
     </div>
     <div><div class="certs">
       <div class="cert">ISO 20000</div><div class="cert">ISO 27017</div><div class="cert">ISO 27701</div><div class="cert">ISO 22301</div><div class="cert">GDPR</div><div class="cert">KVKK</div>
@@ -754,18 +731,28 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ INTEGRATIONS ═══════════ -->
+<!-- INTEGRATIONS -->
 <section class="integrations">
   <div class="ctr rv">
     <h3>Designed to connect</h3>
     <p>Plug Netmera into your data, analytics, and marketing tools to keep systems in sync.</p>
     <div class="int-icons">
-      <div class="int-icon">Adjust</div><div class="int-icon">Firebase</div><div class="int-icon">Segment</div><div class="int-icon">Zapier</div><div class="int-icon">HubSpot</div><div class="int-icon">REST API</div><div class="int-icon">FTP</div><div class="int-icon">Flutter</div>
+      <!-- Row 1 -->
+      <div class="int-icon" title="Google"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-3.58-13.47-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+      <div class="int-icon" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><path fill="#1877F2" d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24c0 11.979 8.776 21.908 20.25 23.708V30.937h-6.094V24H20.25v-5.288c0-6.014 3.583-9.337 9.065-9.337 2.625 0 5.372.469 5.372.469v5.906h-3.026c-2.981 0-3.911 1.85-3.911 3.75V24h6.656l-1.064 6.937H27.75v16.771C39.224 45.908 48 35.979 48 24z"/></svg></div>
+      <div class="int-icon" title="AppsFlyer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="24" fill="#00B3D9" opacity=".15"/><path d="M24 8c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16S32.837 8 24 8zm0 4c2.09 0 4.06.51 5.8 1.41L14.41 28.8A11.94 11.94 0 0 1 12 24c0-6.627 5.373-12 12-12zm0 24c-2.09 0-4.06-.51-5.8-1.41l15.39-15.39A11.94 11.94 0 0 1 36 24c0 6.627-5.373 12-12 12z" fill="#00B3D9"/></svg></div>
+      <div class="int-icon" title="mParticle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><text x="4" y="26" font-family="sans-serif" font-size="15" font-weight="700" fill="#4A90D9">m</text><circle cx="10" cy="33" r="2.5" fill="#4A90D9"/><circle cx="20" cy="33" r="2.5" fill="#4A90D9"/><circle cx="30" cy="33" r="2.5" fill="#4A90D9"/></svg></div>
+      <div class="int-icon" title="Adjust"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><rect x="0" y="0" width="12" height="12" fill="#1a1a1a"/><rect x="12" y="0" width="12" height="12" fill="#fff"/><rect x="24" y="0" width="12" height="12" fill="#1a1a1a"/><rect x="0" y="12" width="12" height="12" fill="#fff"/><rect x="12" y="12" width="12" height="12" fill="#1a1a1a"/><rect x="24" y="12" width="12" height="12" fill="#fff"/><rect x="0" y="24" width="12" height="12" fill="#1a1a1a"/><rect x="12" y="24" width="12" height="12" fill="#fff"/><rect x="24" y="24" width="12" height="12" fill="#1a1a1a"/></svg></div>
+      <!-- Row 2 -->
+      <div class="int-icon" title="SAP"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><rect width="48" height="48" rx="8" fill="#0070F2"/><text x="5" y="32" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="#fff">SAP</text></svg></div>
+      <div class="int-icon" title="Mixpanel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="24" fill="#1a1a1a"/><circle cx="24" cy="24" r="10" fill="none" stroke="#7856FF" stroke-width="6"/></svg></div>
+      <div class="int-icon" title="Adobe"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><rect width="48" height="48" rx="4" fill="#FA0F00"/><text x="8" y="32" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff">Adobe</text></svg></div>
+      <div class="int-icon" title="AWS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><text x="4" y="22" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#232F3E">aws</text><path d="M6 28 Q24 38 42 28" stroke="#FF9900" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M38 25 L42 28 L38 31" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ BLOG ═══════════ -->
+<!-- BLOG -->
 <section class="sec white-sec">
   <div class="ctr">
     <div class="sec-head rv">
@@ -798,52 +785,96 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ═══════════ CTA ═══════════ -->
+<!-- CTA -->
 <section class="final-cta">
   <div class="ctr">
     <h2>Teams who refuse to wait start here.</h2>
     <p>Built for fast, connected customer communication.</p>
     <div class="cta-btns">
-      <a href="#" class="btn btn-white">Talk to Sales</a>
+      <a href="#" class="btn btn-white">Get a Demo</a>
       <a href="#" class="btn btn-outline">See Success Stories</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ FAQ ═══════════ -->
-<section class="sec light">
-  <div class="ctr">
-    <div class="sec-head rv"><h2>FAQs</h2></div>
-    <div class="faq-list">
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>Why do marketing & product teams switch to Netmera?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">They're tired of waiting on developers to tag events, connect data sources, or fix broken integrations. Campaigns take weeks to launch because every step requires IT approval. Netmera removes that dependency. Tagless Data Capture tracks user behavior automatically. Customer data from apps, websites, and CRM systems syncs into unified profiles without custom code. Teams build segments, design journeys, and launch campaigns across all channels themselves.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>How quickly can we get started?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">Initial setup and integration typically takes 4–8 weeks depending on your user base, the products you choose, and the number of events to track. Once integrated, your team can launch their first campaign within hours using the no-code interface.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>Do we need developers to use Netmera?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">Minimal developer work during initial setup and integration. After that, your team handles everything: building campaigns, tracking events, creating segments, launching journeys. The drag-and-drop Journey builder and messaging tools remove the technical bottleneck. No SQL required. No constant IT requests.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>Which channels does Netmera support?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">Push notifications (mobile and web), email, SMS, WhatsApp, in-app messages, pop-ups, surveys, geofencing, and Live Activities. Teams can run campaigns on individual channels or orchestrate them across multiple touchpoints using the Journey Builder.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>Is Netmera secure enough for regulated industries?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">Banks and telecoms trust Netmera with their customer data. We hold ISO 20000, ISO 27017, ISO/IEC 27701, and ISO 22301. GDPR compliant. Independently tested with regular penetration assessments. For Turkish companies, KVKK, IYS and BDKK compliance is built in.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>Can Netmera handle our data volume as we scale?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">We process 30 billion events monthly from 500+ million users. The platform delivers 30+ billion notifications each month and handles 200TB+ of real-time data without performance issues. Brands scale from millions to billions of events without platform changes.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>How does Netmera unify customer data from different sources?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">Netmera's SDK integrates with your mobile app (iOS, Android, Flutter, React Native, Cordova). For the web, the Tag Manager captures behavioral data automatically. Backend integrations connect via REST API or FTP to pull data from your CRM, data warehouse, or third-party tools like Adjust. All of it flows into one unified customer profile without custom code.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>What support do we get during and after implementation?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">You're assigned a dedicated Customer Onboarding Manager and Solution Architect from day one. They handle initial SDK integration, channel setup, and implementation check-ins. Once live, your dedicated Customer Success Manager takes over with ongoing strategic support. You also get access to 7×24 professional support along with comprehensive user and developer guides.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>How is Netmera priced?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">Pricing is based on monthly active users (MAU). Contact us for a custom quote based on your user base and the products you need.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="tFaq(this)"><h4>What kind of results do companies see with Netmera?</h4><div class="faq-tog"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="faq-a"><div class="faq-a-inner">TOD saw purchases increase 187–190% among users who enabled push notifications. N Kolay doubled premium membership completion rates from 4.17% to 9.16% with automated behavioral triggers. DenizBank achieved a 10x increase in click-through rates for loan applications. Mackolik sends 20K+ notifications daily with 20% retention improvement.</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ FOOTER ═══════════ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="ctr">
-    <div class="footer-grid">
-      <div>
-        <div class="f-brand"><span class="c1">net</span><span class="c2">me</span><span class="c3">ra</span></div>
-        <p class="f-desc">One platform for unified data, automated cross-channel journeys, and real-time analytics. Built for teams that move fast.</p>
+    <div class="footer-brand">
+      <div class="f-brand"><span class="c1">net</span><span class="c2">me</span><span class="c3">ra</span></div>
+      <p class="f-desc">AI-powered customer engagement platform for unified data, automated cross-channel journeys, and real-time analytics. Built for marketing, CX and product teams at mid-scale and enterprise companies.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="f-col">
+        <h5>Products</h5>
+        <a href="#">Customer Data Management</a>
+        <a href="#">Customer Journeys</a>
+        <a href="#">Web Personalization</a>
+        <a href="#">Testing and Experimentation</a>
+        <a href="#">Data & Analytics</a>
+        <a href="#">Tagless Data Capture</a>
+        <a href="#">Surveys & Feedback</a>
+        <a href="#">Funnels</a>
       </div>
-      <div class="f-col"><h5>Platform</h5><a href="#">Data Management</a><a href="#">Analytics</a><a href="#">Journeys</a><a href="#">Segmentation</a><a href="#">Personalization</a><a href="#">N-Act AI</a></div>
-      <div class="f-col"><h5>Industries</h5><a href="#">Finance & Fintech</a><a href="#">Telecom</a><a href="#">E-commerce</a><a href="#">Media</a><a href="#">Retail</a></div>
-      <div class="f-col"><h5>Resources</h5><a href="#">Blog</a><a href="#">Case Studies</a><a href="#">Documentation</a><a href="#">Security</a><a href="#">Contact Sales</a></div>
+      <div class="f-col">
+        <h5>Channels</h5>
+        <a href="#">Mobile & Web Push</a>
+        <a href="#">E-Mail</a>
+        <a href="#">SMS</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Mobile In-App</a>
+        <a href="#">Web Pop-Ups</a>
+        <a href="#">Live Activities</a>
+        <a href="#">Feedback Button</a>
+        <a href="#">Netmera AI</a>
+      </div>
+      <div class="f-col">
+        <h5>Industries</h5>
+        <a href="#">Media and Entertainment</a>
+        <a href="#">Banking and Finance</a>
+        <a href="#">Retail and E-commerce</a>
+        <a href="#">Travel and Hospitality</a>
+        <a href="#">Telecommunication</a>
+      </div>
+      <div class="f-col">
+        <h5>Company</h5>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Partners</a>
+        <a href="#">Why Netmera</a>
+        <a href="#">News</a>
+      </div>
+      <div class="f-col">
+        <h5>Resources</h5>
+        <a href="#">Blog</a>
+        <a href="#">Glossary</a>
+        <a href="#">Top Use Cases</a>
+        <a href="#">Resources</a>
+        <a href="#">Success Stories</a>
+        <a href="#">Developer and User Guide</a>
+      </div>
     </div>
     <div class="f-bottom">
-      <p>© 2026 Netmera. All rights reserved.</p>
-      <div class="f-socials"><a href="#" class="f-social">in</a><a href="#" class="f-social">X</a><a href="#" class="f-social">YT</a></div>
+      <div class="f-bottom-left">
+        <p>© 2026 Netmera. All Rights Reserved.</p>
+        <div class="f-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy (EU)</a>
+          <a href="#">GDPR</a>
+          <a href="#">KVKK</a>
+        </div>
+      </div>
+      <div class="f-bottom-right">
+        <div class="f-socials">
+          <a href="#" class="f-social">in</a>
+          <a href="#" class="f-social">YT</a>
+        </div>
+        <div class="f-badges">
+          <div class="f-badge"><div class="f-badge-title">GDPR</div><div class="f-badge-sub">Compliant</div></div>
+          <div class="f-badge"><div class="f-badge-title">ISO</div><div class="f-badge-sub">20000 · 27701<br>27017 · 22301</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
@@ -864,13 +895,6 @@ document.querySelectorAll('.ai-tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.ai-slide').forEach(x=>x.classList.remove('on'));
   t.classList.add('on');document.getElementById(aiMap[t.dataset.a]).classList.add('on');
 }));
-
-// FAQ
-function tFaq(el){
-  const item=el.parentElement,ans=item.querySelector('.faq-a'),open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0'});
-  if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
-}
 
 // Scroll Reveal
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
