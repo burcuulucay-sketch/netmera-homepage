@@ -23,7 +23,6 @@
 </head>
 <body class="bg-slate-50 min-h-screen p-4 md:p-8">
 
-    <!-- Navigation Bar -->
     <nav class="max-w-7xl mx-auto bg-white shadow-sm rounded-xl px-6 py-4 flex items-center justify-between border border-slate-200 relative z-50">
         <div class="flex items-center gap-8">
             <div class="text-2xl font-black text-blue-600 tracking-tighter italic select-none">NETMERA</div>
@@ -33,7 +32,7 @@
                 </button>
                 <button class="hover:text-blue-600 transition-colors">Solutions</button>
                 <button class="hover:text-blue-600 transition-colors">Resources</button>
-                <button class="hover:text-blue-600 transition-colors">Pricing</button>
+                <button class="hover:text-blue-600 transition-colors">Company</button>
             </div>
         </div>
         <div class="flex gap-4">
@@ -42,11 +41,9 @@
         </div>
     </nav>
 
-    <!-- Mega Menu -->
     <div id="mega-menu" class="mega-menu active max-w-7xl mx-auto mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative z-40">
         <div class="grid grid-cols-1 md:grid-cols-12">
             
-            <!-- LEFT COLUMN: Overview & AI (3 units) -->
             <div class="col-span-12 md:col-span-3 p-8 bg-slate-50/50 border-r border-slate-100">
                 <div class="mb-10">
                     <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">The Platform</h3>
@@ -71,12 +68,6 @@
                         </div>
                         <div class="flex items-center gap-3 group cursor-pointer">
                             <div class="p-1.5 bg-blue-50 text-blue-600 rounded-md group-hover:scale-110 transition-transform">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-                            </div>
-                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Generative AI</span>
-                        </div>
-                        <div class="flex items-center gap-3 group cursor-pointer">
-                            <div class="p-1.5 bg-blue-50 text-blue-600 rounded-md group-hover:scale-110 transition-transform">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             </div>
                             <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Agentic AI</span>
@@ -85,11 +76,9 @@
                 </div>
             </div>
 
-            <!-- MIDDLE COLUMN: Capabilities (6 units, 4+3 Grid) -->
             <div class="col-span-12 md:col-span-6 p-8">
                 <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6 px-2">Featured Capabilities</h3>
                 <div class="grid grid-cols-2 gap-x-8">
-                    <!-- Column 1: 4 Items -->
                     <div class="space-y-1">
                         <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 group cursor-pointer transition-all">
                             <div class="text-blue-500 group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
@@ -108,7 +97,6 @@
                             <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Funnels</span>
                         </div>
                     </div>
-                    <!-- Column 2: 3 Items (including AI Search & Discovery) -->
                     <div class="space-y-1">
                         <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 group cursor-pointer transition-all">
                             <div class="text-blue-500 group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
@@ -122,13 +110,16 @@
                             <div class="text-blue-600 group-hover:scale-110 transition-transform">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                             </div>
-                            <span class="font-bold text-slate-900 text-sm group-hover:text-blue-700">AI Search & Discovery</span>
+                            <span class="font-bold text-slate-900 text-sm group-hover:text-blue-700">AI Site Search & Browse</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 group cursor-pointer transition-all">
+                            <div class="text-blue-500 group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M12 18h.01"/></svg></div>
+                            <span class="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">Transactional Messaging</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Channels (3 units, expanded list) -->
             <div class="col-span-12 md:col-span-3 p-8 bg-slate-50/30">
                 <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6">Channels</h3>
                 <div class="grid grid-cols-1 gap-2">
@@ -163,7 +154,6 @@
             </div>
         </div>
 
-        <!-- BOTTOM SECTION: WHY NETMERA -->
         <div class="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-white">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl mx-auto">
                 <div class="flex flex-col">
@@ -187,7 +177,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="mt-1 text-blue-400"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></div>
+                        <div class="mt-1 text-blue-400"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12a14.5 14.5 0 0 0 20 0 14.5 14.5 0 0 0-20 0"/></svg></div>
                         <div>
                             <div class="text-xs font-bold text-white">No-Code Setup</div>
                             <div class="text-[10px] text-blue-200 max-w-[120px]">Implementation in weeks</div>
