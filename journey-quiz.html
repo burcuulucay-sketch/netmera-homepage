@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netmera Journey Quiz</title>
+</head>
+<body style="margin:0; padding:0; background:transparent;">
+
 <div id="netmera-quiz-container" class="nm-quiz-wrapper">
     <div id="quiz-intro">
         <h2 class="nm-title">Is your journey strategy reactive or orchestrated?</h2>
@@ -21,6 +30,14 @@
 </div>
 
 <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+
     .nm-quiz-wrapper {
         --nm-deep-blue: #3B3762;
         --nm-blue-hover: #4e4a7d;
@@ -31,22 +48,22 @@
         --nm-text-muted: #58595B;
 
         font-family: 'Nunito', sans-serif;
+        width: 100%;
         max-width: 650px;
-        margin: 2rem auto;
-        padding: 3rem 2.5rem;
+        margin: 1rem auto;
+        padding: 2.5rem 2rem;
         background: var(--nm-light-bg);
         border: 1px solid var(--nm-border-color);
         border-radius: 16px;
         box-shadow: 0 10px 30px rgba(59, 55, 98, 0.08);
         color: var(--nm-text-main);
         line-height: 1.6;
-        box-sizing: border-box;
     }
 
     .nm-title {
         color: var(--nm-deep-blue);
         font-weight: 700;
-        font-size: 1.85rem;
+        font-size: 1.6rem;
         margin-bottom: 1rem;
         text-align: center;
     }
@@ -54,8 +71,8 @@
     .nm-subtitle {
         color: var(--nm-text-muted);
         text-align: center;
-        margin-bottom: 2.5rem;
-        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        font-size: 1rem;
     }
 
     .nm-progress-bar {
@@ -63,7 +80,7 @@
         height: 8px;
         background: var(--nm-soft-gray);
         border-radius: 10px;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
         overflow: hidden;
     }
 
@@ -75,9 +92,9 @@
     }
 
     #question-text {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
         font-weight: 700;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
         color: var(--nm-deep-blue);
     }
 
@@ -85,19 +102,19 @@
         display: flex;
         align-items: center;
         width: 100%;
-        min-height: 64px;
-        padding: 1rem 1.5rem;
-        margin-bottom: 12px;
+        min-height: 56px;
+        padding: 0.875rem 1.25rem;
+        margin-bottom: 10px;
         background: var(--nm-light-bg);
         border: 2px solid var(--nm-border-color);
         border-radius: 10px;
         text-align: left;
         cursor: pointer;
-        font-size: 1rem;
+        font-size: 0.95rem;
         font-family: inherit;
         color: var(--nm-text-main);
         transition: all 0.2s ease;
-        box-sizing: border-box;
+        line-height: 1.4;
     }
 
     .nm-option-btn:hover {
@@ -107,11 +124,11 @@
 
     .nm-feedback-box {
         background: var(--nm-soft-gray);
-        padding: 1.75rem;
+        padding: 1.5rem;
         border-left: 5px solid var(--nm-deep-blue);
-        margin: 2rem 0;
+        margin: 1.5rem 0;
         border-radius: 4px 12px 12px 4px;
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .nm-btn-primary, .nm-cta-button {
@@ -120,17 +137,17 @@
         justify-content: center;
         background: var(--nm-deep-blue);
         color: #FFFFFF !important;
-        padding: 18px 32px;
+        padding: 16px 24px;
         border-radius: 8px;
         text-decoration: none !important;
         font-weight: 700;
         width: 100%;
-        box-sizing: border-box;
         border: none;
         cursor: pointer;
-        font-size: 1.1rem;
+        font-size: 1rem;
         transition: background 0.3s ease;
         text-align: center;
+        line-height: 1.4;
     }
 
     .nm-btn-primary:hover, .nm-cta-button:hover {
@@ -138,9 +155,14 @@
     }
 
     @media (max-width: 480px) {
-        .nm-quiz-wrapper { padding: 2rem 1.5rem; }
-        .nm-title { font-size: 1.5rem; }
-        .nm-option-btn { font-size: 0.95rem; }
+        .nm-quiz-wrapper {
+            padding: 1.5rem 1.25rem;
+            margin: 0.5rem auto;
+            border-radius: 12px;
+        }
+        .nm-title { font-size: 1.3rem; }
+        .nm-subtitle { font-size: 0.95rem; }
+        .nm-option-btn { font-size: 0.9rem; }
     }
 </style>
 
@@ -184,17 +206,22 @@
     var currentStep = 0;
     var scores = { A: 0, B: 0, C: 0 };
 
+    function sendHeight() {
+        var h = document.getElementById('netmera-quiz-container').offsetHeight + 32;
+        window.parent.postMessage({ nmQuizHeight: h }, '*');
+    }
+
     function init() {
-        var startBtn = document.getElementById('nm-start-btn');
-        if (startBtn) {
-            startBtn.addEventListener('click', startQuiz);
-        }
+        document.getElementById('nm-start-btn').addEventListener('click', startQuiz);
+        sendHeight();
+        window.addEventListener('resize', sendHeight);
     }
 
     function startQuiz() {
         document.getElementById('quiz-intro').style.display = 'none';
         document.getElementById('quiz-content').style.display = 'block';
         showQuestion();
+        setTimeout(sendHeight, 50);
     }
 
     function showQuestion() {
@@ -207,24 +234,18 @@
             var btn = document.createElement('button');
             btn.className = 'nm-option-btn';
             btn.innerText = opt.text;
-            btn.addEventListener('click', function() {
-                selectOption(opt.type);
-            });
+            btn.addEventListener('click', function() { selectOption(opt.type); });
             optionsDiv.appendChild(btn);
         });
 
-        var progress = (currentStep / quizData.length) * 100;
-        document.getElementById('nm-progress-fill').style.width = progress + '%';
+        document.getElementById('nm-progress-fill').style.width = (currentStep / quizData.length * 100) + '%';
+        setTimeout(sendHeight, 50);
     }
 
     function selectOption(type) {
         scores[type]++;
         currentStep++;
-        if (currentStep < quizData.length) {
-            showQuestion();
-        } else {
-            showResults();
-        }
+        currentStep < quizData.length ? showQuestion() : showResults();
     }
 
     function showResults() {
@@ -235,12 +256,7 @@
         var feedback = document.getElementById('result-feedback');
         var link = document.getElementById('result-link');
 
-        var finalResult = 'C';
-        if (scores.A >= scores.B && scores.A >= scores.C) {
-            finalResult = 'A';
-        } else if (scores.B >= scores.C) {
-            finalResult = 'B';
-        }
+        var finalResult = (scores.A >= scores.B && scores.A >= scores.C) ? 'A' : (scores.B >= scores.C ? 'B' : 'C');
 
         if (finalResult === 'A') {
             feedback.innerHTML = "<strong>The 'IT Bottleneck' Stage:</strong> Your team is currently reliant on technical resources for basic marketing agility. This dependency slows down your response time to customer actions, which leads to missed revenue opportunities.";
@@ -255,6 +271,8 @@
             link.innerText = "Learn how to further optimize your ROI with Predictive AI";
             link.href = "https://netmera.com/predictive-engagement-launch-well-timed-personalized-campaigns-with-ai/";
         }
+
+        setTimeout(sendHeight, 50);
     }
 
     if (document.readyState === 'loading') {
@@ -264,3 +282,6 @@
     }
 })();
 </script>
+
+</body>
+</html>
