@@ -1,0 +1,266 @@
+<div id="netmera-quiz-container" class="nm-quiz-wrapper">
+    <div id="quiz-intro">
+        <h2 class="nm-title">Is your journey strategy reactive or orchestrated?</h2>
+        <p class="nm-subtitle">Answer 4 questions to see if your current setup is scaling with your customers or holding your team back.</p>
+        <button id="nm-start-btn" class="nm-btn-primary">Start Assessment</button>
+    </div>
+
+    <div id="quiz-content" style="display: none;">
+        <div class="nm-progress-bar"><div id="nm-progress-fill"></div></div>
+        <div id="question-container">
+            <h3 id="question-text"></h3>
+            <div id="options-container"></div>
+        </div>
+    </div>
+
+    <div id="quiz-results" style="display: none;">
+        <h2 class="nm-title">Your Results</h2>
+        <div id="result-feedback" class="nm-feedback-box"></div>
+        <a id="result-link" href="#" target="_blank" class="nm-cta-button">CTA Text</a>
+    </div>
+</div>
+
+<style>
+    .nm-quiz-wrapper {
+        --nm-deep-blue: #3B3762;
+        --nm-blue-hover: #4e4a7d;
+        --nm-light-bg: #FFFFFF;
+        --nm-soft-gray: #F8F9FA;
+        --nm-border-color: #E2E4E8;
+        --nm-text-main: #2D2A4A;
+        --nm-text-muted: #58595B;
+
+        font-family: 'Nunito', sans-serif;
+        max-width: 650px;
+        margin: 2rem auto;
+        padding: 3rem 2.5rem;
+        background: var(--nm-light-bg);
+        border: 1px solid var(--nm-border-color);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(59, 55, 98, 0.08);
+        color: var(--nm-text-main);
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+
+    .nm-title {
+        color: var(--nm-deep-blue);
+        font-weight: 700;
+        font-size: 1.85rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .nm-subtitle {
+        color: var(--nm-text-muted);
+        text-align: center;
+        margin-bottom: 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    .nm-progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--nm-soft-gray);
+        border-radius: 10px;
+        margin-bottom: 2.5rem;
+        overflow: hidden;
+    }
+
+    #nm-progress-fill {
+        height: 100%;
+        background: var(--nm-deep-blue);
+        width: 0%;
+        transition: width 0.5s ease;
+    }
+
+    #question-text {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--nm-deep-blue);
+    }
+
+    .nm-option-btn {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 64px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 12px;
+        background: var(--nm-light-bg);
+        border: 2px solid var(--nm-border-color);
+        border-radius: 10px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 1rem;
+        font-family: inherit;
+        color: var(--nm-text-main);
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    .nm-option-btn:hover {
+        border-color: var(--nm-deep-blue);
+        background: rgba(59, 55, 98, 0.02);
+    }
+
+    .nm-feedback-box {
+        background: var(--nm-soft-gray);
+        padding: 1.75rem;
+        border-left: 5px solid var(--nm-deep-blue);
+        margin: 2rem 0;
+        border-radius: 4px 12px 12px 4px;
+        font-size: 1.05rem;
+    }
+
+    .nm-btn-primary, .nm-cta-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--nm-deep-blue);
+        color: #FFFFFF !important;
+        padding: 18px 32px;
+        border-radius: 8px;
+        text-decoration: none !important;
+        font-weight: 700;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background 0.3s ease;
+        text-align: center;
+    }
+
+    .nm-btn-primary:hover, .nm-cta-button:hover {
+        background: var(--nm-blue-hover);
+    }
+
+    @media (max-width: 480px) {
+        .nm-quiz-wrapper { padding: 2rem 1.5rem; }
+        .nm-title { font-size: 1.5rem; }
+        .nm-option-btn { font-size: 0.95rem; }
+    }
+</style>
+
+<script>
+(function() {
+    var quizData = [
+        {
+            q: "How do you currently track new user events (like a new button click or a category view)?",
+            options: [
+                { text: "We write a Jira ticket for the IT team and wait for the next sprint.", type: "A" },
+                { text: "We use a developer-heavy tag manager that requires custom code for every event.", type: "B" },
+                { text: "We use tagless data capture or a DIY editor to track events ourselves in real-time.", type: "C" }
+            ]
+        },
+        {
+            q: "A customer abandons a high-value cart. How long does it take for them to receive a personalized notification?",
+            options: [
+                { text: "We don't have an automated trigger for this yet.", type: "A" },
+                { text: "Usually 24 hours, once our data warehouse syncs with our email tool.", type: "B" },
+                { text: "Within minutes, triggered by their live behavior.", type: "C" }
+            ]
+        },
+        {
+            q: "How many different platforms do you log into to see a single customer's journey across mobile and web?",
+            options: [
+                { text: "Three or more. The data is scattered across different departments.", type: "A" },
+                { text: "Two. We try to manually export and merge CSVs to see the full picture.", type: "B" },
+                { text: "One. We have a unified view of all digital touchpoints.", type: "C" }
+            ]
+        },
+        {
+            q: "What happens when you want to change a campaign logic (e.g., adding a delay to a push message)?",
+            options: [
+                { text: "It requires a code change and a new app store submission.", type: "A" },
+                { text: "I can do it, but I need to ask a data specialist to update the segment first.", type: "B" },
+                { text: "I update the logic in the visual journey builder and it goes live instantly.", type: "C" }
+            ]
+        }
+    ];
+
+    var currentStep = 0;
+    var scores = { A: 0, B: 0, C: 0 };
+
+    function init() {
+        var startBtn = document.getElementById('nm-start-btn');
+        if (startBtn) {
+            startBtn.addEventListener('click', startQuiz);
+        }
+    }
+
+    function startQuiz() {
+        document.getElementById('quiz-intro').style.display = 'none';
+        document.getElementById('quiz-content').style.display = 'block';
+        showQuestion();
+    }
+
+    function showQuestion() {
+        var question = quizData[currentStep];
+        document.getElementById('question-text').innerText = question.q;
+        var optionsDiv = document.getElementById('options-container');
+        optionsDiv.innerHTML = '';
+
+        question.options.forEach(function(opt) {
+            var btn = document.createElement('button');
+            btn.className = 'nm-option-btn';
+            btn.innerText = opt.text;
+            btn.addEventListener('click', function() {
+                selectOption(opt.type);
+            });
+            optionsDiv.appendChild(btn);
+        });
+
+        var progress = (currentStep / quizData.length) * 100;
+        document.getElementById('nm-progress-fill').style.width = progress + '%';
+    }
+
+    function selectOption(type) {
+        scores[type]++;
+        currentStep++;
+        if (currentStep < quizData.length) {
+            showQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.getElementById('quiz-content').style.display = 'none';
+        document.getElementById('quiz-results').style.display = 'block';
+        document.getElementById('nm-progress-fill').style.width = '100%';
+
+        var feedback = document.getElementById('result-feedback');
+        var link = document.getElementById('result-link');
+
+        var finalResult = 'C';
+        if (scores.A >= scores.B && scores.A >= scores.C) {
+            finalResult = 'A';
+        } else if (scores.B >= scores.C) {
+            finalResult = 'B';
+        }
+
+        if (finalResult === 'A') {
+            feedback.innerHTML = "<strong>The 'IT Bottleneck' Stage:</strong> Your team is currently reliant on technical resources for basic marketing agility. This dependency slows down your response time to customer actions, which leads to missed revenue opportunities.";
+            link.innerText = "See how Netmera eliminates IT dependency";
+            link.href = "https://netmera.com/tagless-data-capture-automatic-event-tracking-for-teams-that-cant-wait-on-it/";
+        } else if (finalResult === 'B') {
+            feedback.innerHTML = "<strong>The 'Siloed Data' Stage:</strong> You have the tools, but they don't talk to each other in real-time. You're spending more time managing data than you are creating experiences.";
+            link.innerText = "Explore how engagement platforms with built-in CDP unify all customer touchpoints";
+            link.href = "https://netmera.com/cdp-vs-engagement-platform-comparison-guide/";
+        } else {
+            feedback.innerHTML = "<strong>The 'Orchestration' Stage:</strong> You are ahead of the curve. You're focused on real-time action and team independence.";
+            link.innerText = "Learn how to further optimize your ROI with Predictive AI";
+            link.href = "https://netmera.com/predictive-engagement-launch-well-timed-personalized-campaigns-with-ai/";
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
